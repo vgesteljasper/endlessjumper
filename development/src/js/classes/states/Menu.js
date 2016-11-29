@@ -12,9 +12,6 @@ export default class Menu extends Phaser.State {
     this.bird = this.add.sprite(200,5,'bird');
     this.titleGroup.add(this.bird);
 
-    this.bird.animations.add('flap');
-    this.bird.animations.play('flap', 12, true);
-
     this.titleGroup.x = 30;
     this.titleGroup.y = 100;
 
