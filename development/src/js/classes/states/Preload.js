@@ -1,28 +1,22 @@
 export default class Preload extends Phaser.State {
   preload() {
     this.asset = this.add.sprite(this.game.width/2,this.game.height/2, 'preloader');
+    this.asset.animations.add(`preloading`);
+    this.asset.animations.play(`preloading`, 30, true);
     this.asset.anchor.setTo(0.5, 0.5);
 
-    this.load.image('background', 'assets/background.png');
-    this.load.image('ground', 'assets/ground.png');
-    this.load.image('title', 'assets/title.png');
-    this.load.image('startButton', 'assets/start-button.png');
-
-    this.load.spritesheet('bird', 'assets/bird.png', 34, 24, 3);
-
-    this.load.spritesheet('pipe', 'assets/pipes.png', 54,320,2);
-
-    this.load.bitmapFont('flappyfont', 'assets/fonts/flappyfont/flappyfont.png', 'assets/fonts/flappyfont/flappyfont.fnt');
-
-    this.load.audio('score', 'assets/score.wav');
-    this.load.audio('flap', 'assets/flap.wav');
-    this.load.audio('pipeHit', 'assets/pipe-hit.wav');
-    this.load.audio('groundHit', 'assets/ground-hit.wav');
-
-    this.load.image('scoreboard', 'assets/scoreboard.png');
-    this.load.image('gameover', 'assets/gameover.png');
-    this.load.spritesheet('medals', 'assets/medals.png', 44, 46, 2);
-    this.load.image('particle', 'assets/particle.png');
+    this.load.image(`clouds`, `assets/clouds.png`);
+    this.load.image(`sky`, `assets/sky.png`);
+    this.load.image(`sea`, `assets/sea.png`);
+    //
+    // this.load.image(`background`, `assets/bg.png`);
+    // this.load.atlasJSONHash('components', 'assets/components.png', 'assets/components.json');
+    // this.load.atlasJSONHash('player', 'assets/player.png', 'assets/player.json');
+    // this.load.atlasJSONHash('tiles', 'assets/tiles.png', 'assets/tiles.json');
+    //
+    // this.load.audio(`coin`, `assets/coin.mp3`);
+    // this.load.audio(`explosion`, `assets/explosion.wav`);
+    // this.load.audio(`jump`, `assets/jump.wav`);
   }
   create() {
     this.state.start('Menu');
