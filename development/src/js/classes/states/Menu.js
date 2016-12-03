@@ -5,6 +5,8 @@ export default class Menu extends Phaser.State {
     this.sky = this.add.tileSprite(0, 0, this.game.width, 304, 'sky');
     this.sea = this.add.tileSprite(0, 304, this.game.width, 500, 'sea');
     this.clouds = this.add.tileSprite(0, 80, this.game.width, 236, 'clouds');
+
+    this.tiles = this.add.sprite(98, 200, `platform`, `platform_air_1.psd`);
     // this.background = this.add.sprite(0, 0, 'background');
     // this.ground = this.add.tileSprite(0, 400, 335, 112, 'ground');
     // this.ground.autoScroll(-200, 0);
