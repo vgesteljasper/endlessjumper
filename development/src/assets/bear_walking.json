@@ -1,0 +1,99 @@
+﻿{"frames": {
+
+"bear_walking_1.psd":
+{
+	"frame": {"x":0,"y":0,"w":52,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":28},
+	"sourceSize": {"w":52,"h":28}
+},
+"bear_walking_10.psd":
+{
+	"frame": {"x":52,"y":0,"w":48,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":28},
+	"sourceSize": {"w":48,"h":28}
+},
+"bear_walking_11.psd":
+{
+	"frame": {"x":0,"y":28,"w":50,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":28},
+	"sourceSize": {"w":50,"h":28}
+},
+"bear_walking_2.psd":
+{
+	"frame": {"x":50,"y":28,"w":54,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":28},
+	"sourceSize": {"w":54,"h":28}
+},
+"bear_walking_3.psd":
+{
+	"frame": {"x":0,"y":56,"w":52,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":28},
+	"sourceSize": {"w":52,"h":28}
+},
+"bear_walking_4.psd":
+{
+	"frame": {"x":52,"y":56,"w":51,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":51,"h":28},
+	"sourceSize": {"w":51,"h":28}
+},
+"bear_walking_5.psd":
+{
+	"frame": {"x":0,"y":84,"w":51,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":51,"h":28},
+	"sourceSize": {"w":51,"h":28}
+},
+"bear_walking_6.psd":
+{
+	"frame": {"x":51,"y":84,"w":52,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":28},
+	"sourceSize": {"w":52,"h":28}
+},
+"bear_walking_7.psd":
+{
+	"frame": {"x":0,"y":112,"w":54,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":28},
+	"sourceSize": {"w":54,"h":28}
+},
+"bear_walking_8.psd":
+{
+	"frame": {"x":54,"y":112,"w":50,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":28},
+	"sourceSize": {"w":50,"h":28}
+},
+"bear_walking_9.psd":
+{
+	"frame": {"x":0,"y":140,"w":50,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":28},
+	"sourceSize": {"w":50,"h":28}
+}},
+"meta": {
+	"app": "Adobe Animate",
+	"version": "16.0.0.112",
+	"image": "bear_walking.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":182},
+	"scale": "1"
+}
+}
