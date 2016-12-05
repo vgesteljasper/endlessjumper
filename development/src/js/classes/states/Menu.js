@@ -6,6 +6,7 @@ export default class Menu extends Phaser.State {
     this.createTitle();
     this.createStartPlatform();
     this.createText();
+    this.createFox();
     this.createKeys();
   }
 
@@ -17,7 +18,7 @@ export default class Menu extends Phaser.State {
 
   createTitle(){
     this.title = this.add.text(this.world.centerX,230, `the fox game`, {
-      font: `60px BigJohn`,
+      font: `65px BigJohn`,
       fill: `white`
     });
     this.title.anchor.setTo(0.5);
@@ -36,7 +37,13 @@ export default class Menu extends Phaser.State {
       fill: `white`
     });
     this.text.anchor.setTo(0.5);
-    this.game.add.tween(this.text.scale).to({x:0.93, y:0.93}, 900, null, true, 0, -1, true);
+    this.game.add.tween(this.text.scale).to({x:0.95, y:0.95}, 900, null, true, 0, -1, true);
+  }
+
+  createFox(){
+    this.fox = this.add.sprite(405, 240, `foxStill`, `fox_still.psd`);
+    this.fox.anchor.setTo(0.5);
+    this.fox.scale.setTo(-0.8, 0.8);
   }
 
   createKeys(){
