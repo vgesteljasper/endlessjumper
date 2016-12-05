@@ -7,8 +7,9 @@ export default class StartPlatform extends Phaser.Group {
     this.platform_1 = new PlatformTile(this.game, 0, 0, `platform_1.psd`);
     this.add(this.platform_1);
 
-    this.tree = new PlatformTile(this.game, 30, -37, `boom.psd`);
+    this.tree = new PlatformTile(this.game, -15, -92, `boom.psd`);
     this.add(this.tree);
+    this.tree.scale.setTo(1.5);
 
     this.bridge = new PlatformTile(this.game, 720, 75, `bridge.psd`);
     this.add(this.bridge);

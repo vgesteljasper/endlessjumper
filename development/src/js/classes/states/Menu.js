@@ -44,6 +44,9 @@ export default class Menu extends Phaser.State {
 
   createFox(){
     this.fox = this.add.sprite(405, 240, `foxStill`, `fox_still.psd`);
+    // this.fox = this.add.sprite(405, 240, `foxTaunt`);
+    // this.fox.animations.add(`taunt`, Phaser.Animation.generateFrameNames('fox_jump', 29, 68, '.png', 2), 30, true, false);
+    // this.fox.animations.play(`taunt`);
     this.fox.anchor.setTo(0.5);
     this.fox.scale.setTo(-0.8, 0.8);
   }
