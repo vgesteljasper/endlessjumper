@@ -31,11 +31,12 @@ export default class Menu extends Phaser.State {
   }
 
   createText(){
-    this.title = this.add.text(this.world.centerX,330, `press space to start`, {
-      font: `18px DINRegular`,
+    this.text = this.add.text(this.world.centerX,335, `press space to start`, {
+      font: `20px DINRegular`,
       fill: `white`
     });
-    this.title.anchor.setTo(0.5);
+    this.text.anchor.setTo(0.5);
+    this.game.add.tween(this.text.scale).to({x:0.93, y:0.93}, 900, null, true, 0, -1, true);
   }
 
   createKeys(){
@@ -43,8 +44,8 @@ export default class Menu extends Phaser.State {
   }
 
   update(){
-    // if (this.spaceKey.isDown){
-    //   this.state.start('Play');
-    // }
+    if (this.spaceKey.isDown){
+      this.state.start('Play');
+    }
   }
 }
