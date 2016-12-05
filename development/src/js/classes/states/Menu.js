@@ -7,6 +7,8 @@ export default class Menu extends Phaser.State {
     this.createStartPlatform();
     this.createText();
     this.createFox();
+    this.createChicken();
+    this.createSound();
     this.createKeys();
   }
 
@@ -44,6 +46,21 @@ export default class Menu extends Phaser.State {
     this.fox = this.add.sprite(405, 240, `foxStill`, `fox_still.psd`);
     this.fox.anchor.setTo(0.5);
     this.fox.scale.setTo(-0.8, 0.8);
+  }
+
+  createChicken(){
+    this.chicken = this.add.sprite(405, 240, `chicken`);
+    // this.chicken.animations.add(`walk`, [`chicken_fly_1.psd`, `chicken_fly_2.psd`, `chicken_fly_3.psd`, `chicken_fly_4.psd`, `chicken_fly_5.psd`, `chicken_fly_6.psd`, `chicken_fly_7.psd`, `chicken_fly_8.psd`, `chicken_fly_9.psd`, `chicken_fly_10.psd`, `pchicken_fly_11.psd`]);
+    // this.chicken.animations.play(`walk`);
+    this.chicken.animations.add(`walk`, Phaser.Animation.generateFrameNames('chicken_fly', 1, 42, '.png', 2), 10, true, false);
+    this.chicken.animations.play(`walk`);
+    this.chicken.anchor.setTo(0.5);
+    this.physics.arcade.enable(this.chicken);
+  }
+
+  createSound(){
+    this.sound = this.add.audio('sound',1,true);
+    //this.sound.play();
   }
 
   createKeys(){
