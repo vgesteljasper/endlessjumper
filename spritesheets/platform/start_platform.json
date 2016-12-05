@@ -16,17 +16,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":31},
 	"sourceSize": {"w":194,"h":31}
 },
-"platform_1.psd":
+"platform_1.psb":
 {
-	"frame": {"x":0,"y":119,"w":744,"h":223},
+	"frame": {"x":0,"y":119,"w":744,"h":171},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":744,"h":223},
-	"sourceSize": {"w":744,"h":223}
+	"spriteSourceSize": {"x":0,"y":0,"w":744,"h":171},
+	"sourceSize": {"w":744,"h":171}
 },
 "platform_2.psd":
 {
-	"frame": {"x":0,"y":342,"w":430,"h":159},
+	"frame": {"x":0,"y":290,"w":430,"h":159},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":430,"h":159},
@@ -34,7 +34,7 @@
 },
 "platform_3.psd":
 {
-	"frame": {"x":430,"y":342,"w":518,"h":72},
+	"frame": {"x":430,"y":290,"w":518,"h":72},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":518,"h":72},
@@ -45,7 +45,7 @@
 	"version": "16.0.0.112",
 	"image": "start_platform.png",
 	"format": "RGBA8888",
-	"size": {"w":953,"h":508},
+	"size": {"w":969,"h":475},
 	"scale": "1"
 }
 }

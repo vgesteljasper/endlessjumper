@@ -17,6 +17,4 @@ export default class StartPlatform extends Phaser.Group {
     this.platform_2 = new PlatformTile(this.game, 835, 63, `platform_2.psd`);
     this.add(this.platform_2);
   }
-
-
 }
