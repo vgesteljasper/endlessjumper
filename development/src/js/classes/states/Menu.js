@@ -3,6 +3,7 @@ import StartPlatform from '../objects/StartPlatform.js';
 export default class Menu extends Phaser.State {
   create() {
     this.createBackground();
+    this.createIconLeader();
     this.createTitle();
     this.createStartPlatform();
     this.createText();
@@ -16,6 +17,20 @@ export default class Menu extends Phaser.State {
     this.sky = this.add.tileSprite(0, 0, this.game.width, 304, 'sky');
     this.sea = this.add.tileSprite(0, 304, this.game.width, 500, 'sea');
     this.clouds = this.add.tileSprite(0, 80, this.game.width, 236, 'clouds');
+  }
+
+  createIconLeader(){
+    const leaderboardBtn = this.add.button(20, 15, `icons`, this.leaderboardClicked, this, `leaderboard`, `leaderboard`, `leaderboard`);
+    leaderboardBtn.scale.setTo(0.1, 0.1);
+
+    this.text = this.add.text(70, 26, `LEADERBOARD`, {
+      font: `15px DINMedium`,
+      fill: `white`
+    });
+  }
+
+  leaderboardClicked(){
+    this.state.start('Leaderboard');
   }
 
   createTitle(){
@@ -43,7 +58,7 @@ export default class Menu extends Phaser.State {
   }
 
   createFox(){
-    this.fox = this.add.sprite(405, 240, `foxStill`, `fox_still.psd`);
+    this.fox = this.add.sprite(410, 240, `foxStill`, `fox_still.psd`);
     // this.fox = this.add.sprite(405, 240, `foxTaunt`);
     // this.fox.animations.add(`taunt`, Phaser.Animation.generateFrameNames('fox_jump', 29, 68, '.png', 2), 30, true, false);
     // this.fox.animations.play(`taunt`);

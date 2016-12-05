@@ -2,6 +2,7 @@ import Boot from './states/Boot';
 import Preload from './states/Preload';
 import Menu from './states/Menu';
 import Play from './states/Play';
+import Leaderboard from './states/Leaderboard';
 
 export default class Game extends Phaser.Game {
   constructor() {
@@ -10,6 +11,7 @@ export default class Game extends Phaser.Game {
     this.state.add('Preload', Preload);
     this.state.add('Menu', Menu);
     this.state.add('Play', Play);
+    this.state.add('Leaderboard', Leaderboard);
     this.state.start('Boot');
   }
 }

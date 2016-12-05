@@ -1,0 +1,51 @@
+﻿{"frames": {
+
+"chicken.ai":
+{
+	"frame": {"x":0,"y":0,"w":266,"h":306},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":266,"h":306},
+	"sourceSize": {"w":266,"h":306}
+},
+"egg.psd":
+{
+	"frame": {"x":266,"y":0,"w":33,"h":42},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":33,"h":42},
+	"sourceSize": {"w":33,"h":42}
+},
+"home.ai":
+{
+	"frame": {"x":299,"y":0,"w":390,"h":390},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":390,"h":390},
+	"sourceSize": {"w":390,"h":390}
+},
+"leaderboard":
+{
+	"frame": {"x":0,"y":390,"w":390,"h":390},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":390,"h":390},
+	"sourceSize": {"w":390,"h":390}
+},
+"play.ai":
+{
+	"frame": {"x":390,"y":390,"w":390,"h":390},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":390,"h":390},
+	"sourceSize": {"w":390,"h":390}
+}},
+"meta": {
+	"app": "Adobe Animate",
+	"version": "16.0.0.112",
+	"image": "icons.png",
+	"format": "RGBA8888",
+	"size": {"w":817,"h":811},
+	"scale": "1"
+}
+}
