@@ -5,6 +5,7 @@ export default class Menu extends Phaser.State {
     this.createBackground();
     this.createTitle();
     this.createStartPlatform();
+    this.createText();
     this.createKeys();
   }
 
@@ -14,6 +15,14 @@ export default class Menu extends Phaser.State {
     this.clouds = this.add.tileSprite(0, 80, this.game.width, 236, 'clouds');
   }
 
+  createTitle(){
+    this.title = this.add.text(this.world.centerX,230, `the fox game`, {
+      font: `60px BigJohn`,
+      fill: `white`
+    });
+    this.title.anchor.setTo(0.5);
+  }
+
   createStartPlatform(){
     const startPlatform = new StartPlatform(this.game);
     this.add.existing(startPlatform);
@@ -21,16 +30,16 @@ export default class Menu extends Phaser.State {
     startPlatform.y = 180;
   }
 
-  createKeys(){
-    this.spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-  }
-
-  createTitle(){
-    this.title = this.add.text(this.world.centerX,235, `the fox game`, {
-      font: `60px BigJohn`,
+  createText(){
+    this.title = this.add.text(this.world.centerX,330, `press space to start`, {
+      font: `18px DINRegular`,
       fill: `white`
     });
     this.title.anchor.setTo(0.5);
+  }
+
+  createKeys(){
+    this.spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
   }
 
   update(){
