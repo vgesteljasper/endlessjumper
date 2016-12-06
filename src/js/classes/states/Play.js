@@ -1,4 +1,5 @@
-import StartPlatform from '../objects/StartPlatform.js';
+import StartPlatform from '../objects/StartPlatform';
+import Fox from '../objects/Fox';
 
 export default class Play extends Phaser.State {
   create(){
@@ -10,7 +11,7 @@ export default class Play extends Phaser.State {
     this.createBackground();
     this.createTitle();
     this.createStartPlatform();
-    this.createFox();
+    this.addFox();
 
     // title animation variables
     this.titleLeftPos = this.world.centerX;
@@ -47,19 +48,13 @@ export default class Play extends Phaser.State {
     this.startPlatform.setAll(`body.velocity.x`, -this.speed);
   }
 
-  createFox(){
-    this.fox = this.add.sprite(405, 140, `foxRun`);
-    this.fox.animations.add(`run`, Phaser.Animation.generateFrameNames('fox_run', 1, 12, '.png', 2), 30, true, false);
-    this.fox.animations.play(`run`);
-    this.fox.anchor.setTo(0.5);
-    this.fox.scale.setTo(-0.8, 0.8);
-    this.physics.arcade.enable(this.fox);
-    this.physics.arcade.gravity.y = 200;
+  addFox(){
+    this.fox = new Fox(this.game, 500, 100);
+    this.add.existing(this.fox);
   }
 
   update(){
-    this.physics.arcade.collide(this.fox, this.startPlatform);
-
+    this.physics.arcade.collide(this.fox, this.startPlatform, null, null, this);
 
     this.titleLeftPos -= (this.speed / 80);
 
