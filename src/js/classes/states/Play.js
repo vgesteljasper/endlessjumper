@@ -53,9 +53,4 @@ export default class Play extends Phaser.State {
   update(){
     this.physics.arcade.collide(this.fox, this.startPlatform);
   }
-
-  render(){
-    this.game.debug.body(this.startPlatform);
-    this.game.debug.body(this.fox);
-  }
 }
