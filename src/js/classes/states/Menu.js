@@ -7,8 +7,6 @@ export default class Menu extends Phaser.State {
     this.createTitle();
     this.createStartPlatform();
     this.createText();
-    //this.createFox();
-    //this.createChicken();
     this.createSound();
     this.createKeys();
   }
@@ -34,7 +32,7 @@ export default class Menu extends Phaser.State {
   }
 
   createTitle(){
-    this.title = this.add.text(this.world.centerX,280, `the fox game`, {
+    this.title = this.add.text(this.world.centerX,230, `outfox the bear`, {
       font: `65px BigJohn`,
       fill: `white`
     });
@@ -54,24 +52,7 @@ export default class Menu extends Phaser.State {
       fill: `white`
     });
     this.text.anchor.setTo(0.5);
-    this.game.add.tween(this.text.scale).to({x:0.95, y:0.95}, 900, null, true, 0, -1, true);
-  }
-
-  createFox(){
-    this.fox = this.add.sprite(410, 240, `foxStill`, `fox_still.psd`);
-    // this.fox = this.add.sprite(405, 240, `foxTaunt`);
-    // this.fox.animations.add(`taunt`, Phaser.Animation.generateFrameNames('fox_jump', 29, 68, '.png', 2), 30, true, false);
-    // this.fox.animations.play(`taunt`);
-    this.fox.anchor.setTo(0.5);
-    this.fox.scale.setTo(-0.8, 0.8);
-  }
-
-  createChicken(){
-    this.chicken = this.add.sprite(700, 242, `chicken`);
-    this.chicken.animations.add(`walk`, Phaser.Animation.generateFrameNames('chicken_fly', 1, 42, '.png', 2), 10, true, false);
-    this.chicken.animations.play(`walk`);
-    this.chicken.anchor.setTo(0.5);
-    this.chicken.scale.setTo(0.5, 0.5);
+    this.game.add.tween(this.text.scale).to({x:0.90, y:0.90}, 350, null, true, 0, -1, true);
   }
 
   createSound(){
