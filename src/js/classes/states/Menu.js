@@ -9,6 +9,10 @@ export default class Menu extends Phaser.State {
     this.createText();
     this.createSound();
     this.createKeys();
+
+    // title animation variables
+    this.titleStartPos = 280;
+    this.titleEndPos = 230;
   }
 
   createBackground(){
@@ -69,12 +73,10 @@ export default class Menu extends Phaser.State {
       this.state.start('Play');
     }
 
-    const minTop = 250;
-    let top = 280;
-    if (minTop < top) {
-      top -= .8;
-      this.title.position.y = top;
-      console.log(top);
+    if (this.titleEndPos < this.titleStartPos) {
+      this.titleStartPos -= 1;
+      this.title.position.y = this.titleStartPos;
     }
+
   }
 }
