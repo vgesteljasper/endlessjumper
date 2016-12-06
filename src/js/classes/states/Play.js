@@ -2,11 +2,18 @@ import StartPlatform from '../objects/StartPlatform.js';
 
 export default class Play extends Phaser.State {
   create(){
+
+    // game speed
+    this.speed = 200;
+
     //this.createPhysics();
     this.createBackground();
     this.createTitle();
     this.createStartPlatform();
     this.createFox();
+
+    // title animation variables
+    this.titleLeftPos = this.world.centerX;
   }
 
   // createPhysics(){
@@ -21,7 +28,7 @@ export default class Play extends Phaser.State {
   }
 
   createTitle(){
-    this.title = this.add.text(this.world.centerX,230, `the fox game`, {
+    this.title = this.add.text(this.world.centerX,230, `outfox the bear`, {
       font: `65px BigJohn`,
       fill: `white`
     });
@@ -37,7 +44,7 @@ export default class Play extends Phaser.State {
     this.startPlatform.x = -35;
     this.startPlatform.y = 180;
     this.physics.arcade.enable(this.startPlatform);
-    this.startPlatform.setAll(`body.velocity.x`, -200);
+    this.startPlatform.setAll(`body.velocity.x`, -this.speed);
   }
 
   createFox(){
@@ -52,5 +59,12 @@ export default class Play extends Phaser.State {
 
   update(){
     this.physics.arcade.collide(this.fox, this.startPlatform);
+
+
+    this.titleLeftPos -= (this.speed / 80);
+
+    if (this.titleLeftPos > -400) {
+      this.title.position.x = this.titleLeftPos;
+    }
   }
 }
