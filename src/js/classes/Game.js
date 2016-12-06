@@ -6,12 +6,15 @@ import Leaderboard from './states/Leaderboard';
 
 export default class Game extends Phaser.Game {
   constructor() {
+    // width, height, rendered, parent, state, transparent, antialias, physicsConfig
     super(800, 400, Phaser.AUTO, `game_wrapper`);
+
     this.state.add('Boot', Boot);
     this.state.add('Preload', Preload);
     this.state.add('Menu', Menu);
     this.state.add('Play', Play);
     this.state.add('Leaderboard', Leaderboard);
+
     this.state.start('Boot');
   }
 }
