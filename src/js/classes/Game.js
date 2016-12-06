@@ -6,7 +6,7 @@ import Leaderboard from './states/Leaderboard';
 
 export default class Game extends Phaser.Game {
   constructor() {
-    super(800, 400, Phaser.AUTO);
+    super(800, 400, Phaser.AUTO, `game_wrapper`);
     this.state.add('Boot', Boot);
     this.state.add('Preload', Preload);
     this.state.add('Menu', Menu);

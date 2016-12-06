@@ -1,3 +1,9 @@
-node_modules/
-.DS_STORE
-README.md
+# macOS
+.DS_Store
+
+# node
+node_modules
+npm-debug.log
+
+# webpack
+dist
