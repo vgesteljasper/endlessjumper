@@ -4,6 +4,9 @@ body {
   margin: 0;
   background-color: #222;
   overflow: hidden;
+  background-image: url('../assets/sky.png');
+  background-repeat: repeat-x;
+  background-size: auto 100vh;
 }
 
 #game_wrapper { /* stylelint-disable-line */
