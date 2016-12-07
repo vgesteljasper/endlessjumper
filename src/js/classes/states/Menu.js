@@ -1,4 +1,4 @@
-import StartPlatform from '../objects/StartPlatform.js';
+import PlatformGroupStart from '../objects/PlatformGroupStart';
 
 export default class Menu extends Phaser.State {
   create() {
@@ -44,10 +44,10 @@ export default class Menu extends Phaser.State {
   }
 
   createStartPlatform(){
-    const startPlatform = new StartPlatform(this.game);
+    const startPlatform = new PlatformGroupStart(this.game);
     this.add.existing(startPlatform);
-    startPlatform.x = -35;
-    startPlatform.y = 180;
+    startPlatform.x = 0;
+    startPlatform.y = 240;
   }
 
   createText(){

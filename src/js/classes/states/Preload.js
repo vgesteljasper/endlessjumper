@@ -9,7 +9,10 @@ export default class Preload extends Phaser.State {
     this.load.image(`sky`, `assets/sky.png`);
     this.load.image(`sea`, `assets/sea.png`);
 
-    this.load.atlasJSONHash('platform', 'assets/platform.png', 'assets/platform.json');
+    //-----
+    this.load.atlasJSONHash('platform', 'assets/platform_sprite.png', 'assets/platform_sprite.json');
+    //-----
+
     this.load.atlasJSONHash('StartPlatform', 'assets/start_platform.png', 'assets/start_platform.json');
 
     // this.load.atlasJSONHash('foxTaunt', 'assets/fox_taunt.png', 'assets/fox_taunt.json');
