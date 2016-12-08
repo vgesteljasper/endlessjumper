@@ -5,22 +5,28 @@ export default class Preload extends Phaser.State {
     this.asset.animations.play(`preloading`, 30, true);
     this.asset.anchor.setTo(0.5, 0.5);
 
+// envirement
     this.load.image(`clouds`, `assets/clouds.png`);
     this.load.image(`sky`, `assets/sky.png`);
     this.load.image(`sea`, `assets/sea.png`);
 
-    //-----
+// platforms
     this.load.atlasJSONHash('platform', 'assets/platform_sprite.png', 'assets/platform_sprite.json');
-    //-----
 
-    this.load.atlasJSONHash('StartPlatform', 'assets/start_platform.png', 'assets/start_platform.json');
 
-    // this.load.atlasJSONHash('foxTaunt', 'assets/fox_taunt.png', 'assets/fox_taunt.json');
-    this.load.atlasJSONHash('foxStill', 'assets/fox_still.png', 'assets/fox_still.json');
-    this.load.atlasJSONHash('foxRun', 'assets/fox_run.png', 'assets/fox_run.json');
+    // this.load.atlasJSONHash('StartPlatform', 'assets/start_platform.png', 'assets/start_platform.json');
+    // this.load.atlasJSONHash('foxStill', 'assets/fox_still.png', 'assets/fox_still.json');
+
+// characters
+    // this.load.atlasJSONHash('foxRun', 'assets/fox_run.png', 'assets/fox_run.json');
+    // this.load.atlasJSONHash('foxJump', 'assets/fox_jump.png', 'assets/fox_jump.json');
+    this.load.atlasJSONHash('fox', 'assets/fox.png', 'assets/fox.json');
     this.load.atlasJSONHash('chicken', 'assets/chicken_fly.png', 'assets/chicken_fly.json');
 
+// icons
     this.load.atlasJSONHash('icons', 'assets/icons.png', 'assets/icons.json');
+
+// oudio
     this.load.audio(`sound`, `assets/sound.mp3`);
 
     // this.load.image(`background`, `assets/bg.png`);

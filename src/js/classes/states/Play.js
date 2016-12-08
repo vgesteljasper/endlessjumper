@@ -1,32 +1,24 @@
-import PlatformGroup from '../objects/PlatformGroup';
+import Platform from '../objects/PlatformGroup';
 import Fox from '../objects/Fox';
 
 export default class Play extends Phaser.State {
 
   create() {
-
     this.physics.startSystem(Phaser.Physics.ARCADE);
+    this.physics.arcade.gravity.y = 700;
 
-    // game speed
     this.speed = 200;
+    this.titleLeftPos = this.world.centerX;
 
-    // game gravity
-    this.physics.arcade.gravity.y = 600;
-
-    //this.createPhysics();
     this.createBackground();
     this.createTitle();
     this.createStartPlatform();
     this.addFox();
+    this.keyBindings();
 
-    // title animation variables
-    this.titleLeftPos = this.world.centerX;
+    this.platforms = this.add.group();
+    this.platformDelay();
   }
-
-  // createPhysics() {
-  //   this.physics.startSystem(Phaser.Physics.ARCADE);
-  //   this.physics.arcade.gravity.y = 600;
-  // }
 
   createBackground() {
     this.sky = this.add.tileSprite(0, 0, this.game.width, 304, 'sky');
@@ -43,10 +35,31 @@ export default class Play extends Phaser.State {
   }
 
   createStartPlatform() {
-    this.startPlatform = new PlatformGroup(this.game);
+    this.startPlatform = new Platform(this.game, `startPlatform`);
     this.add.existing(this.startPlatform);
     this.startPlatform.x = 0;
     this.startPlatform.y = 240;
+  }
+
+  spawnPlatform() {
+    let platform = this.platforms.getFirstExists(false);
+    if( !platform ) {
+      console.log(`added platform`);
+      platform = new Platform(this.game);
+      this.platforms.add(platform);
+    }
+
+    // TODO: RESET PLATFORM
+  }
+
+  platformDelay() {
+    // destroy old timer
+    if (this.platformDelayTimer) {
+      this.platformDelayTimer.timer.destroy();
+    }
+    // new timer
+    this.platformDelayTimer = this.time.events.loop(this.game.rnd.integerInRange(500, 4000), this.spawnPlatform, this);
+    this.platformDelayTimer.timer.start();
   }
 
   addFox() {
@@ -55,16 +68,40 @@ export default class Play extends Phaser.State {
   }
 
   update() {
+
+    // collide fox with platforms
+    // TODO: COLLIDE FOX WITH __ALL__ PLATFORMS
     this.physics.arcade.collide(this.fox, this.startPlatform, null, null, this);
 
-    this.game.debug.body(this.fox);
-
-    this.startPlatform.x -= this.speed / 40;
+    // move platforms
+    // TODO: MOVE __ALL__ PLATFORMS
+    this.startPlatform.x -= this.speed / 30;
 
     // move title away
-    this.titleLeftPos -= (this.speed / 80);
+    this.titleLeftPos -= (this.speed / 50);
     if (this.titleLeftPos > -400) {
       this.title.position.x = this.titleLeftPos;
     }
+
+    this.checkKeyboard();
+  }
+
+
+  keyBindings() {
+    this.space = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+  }
+
+  checkKeyboard() {
+    if (this.space.isDown && this.fox.body.wasTouching.down) {
+      this.fox.jump();
+
+      this.jumpTimer = this.time.events.add(Phaser.Timer.SECOND / 2.6, this.foxRun, this);
+      this.jumpTimer.timer.start();
+    }
+  }
+
+  foxRun() {
+    this.jumpTimer.timer.stop();
+    this.fox.run();
   }
 }

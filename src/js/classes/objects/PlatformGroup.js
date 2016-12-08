@@ -1,16 +1,22 @@
 import PlatformPart from './PlatformPart.js';
 
 export default class PlatformGroup extends Phaser.Group {
-  constructor(game) {
+  constructor(game, type) {
     super(game);
 
-    const options = [
-      [`P1_T1_T`, `P1_T1_B`],
-      [`P2_T1_T`, `P2_T1_B`],
-      [`P3_T1_T`, `P3_T1_B`]
-    ];
+    let randomOption;
+    let options;
 
-    let randomOption = options[Math.floor(Math.random()*options.length)];
+    if (type == `startPlatform`) {
+      randomOption = [`P3_T1_T`, `P3_T1_B`];
+    } else {
+      options = [
+        [`P1_T1_T`, `P1_T1_B`],
+        [`P2_T1_T`, `P2_T1_B`],
+        [`P3_T1_T`, `P3_T1_B`]
+      ];
+      randomOption = options[Math.floor(Math.random()*options.length)];
+    }
 
     // create platform from platformParts
     this.platformSurface = new PlatformPart(game, 0, 0, randomOption[0]);
@@ -29,5 +35,13 @@ export default class PlatformGroup extends Phaser.Group {
     // add parts into group
     this.add(this.platformSurface);
     this.add(this.platformMass);
+
+    this.platformMass.events.onOutOfBounds.add(this.platformOut, this);
   }
+
+  platformOut() {
+    this.exists = false;
+  }
+
+  // TODO: RESET FUNCTION
 }

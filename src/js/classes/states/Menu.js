@@ -74,7 +74,7 @@ export default class Menu extends Phaser.State {
     }
 
     if (this.titleEndPos < this.titleStartPos) {
-      this.titleStartPos -= 1;
+      this.titleStartPos -= 2;
       this.title.position.y = this.titleStartPos;
     }
 
