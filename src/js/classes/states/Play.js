@@ -18,6 +18,10 @@ export default class Play extends Phaser.State {
 
     this.platforms = this.add.group();
     this.platformDelay();
+
+    // FIXME:
+    // FIXME: PLATFORMS DON'T SPAWN AFTER FOX JUMP!!!
+    // FIXME: 
   }
 
   createBackground() {
@@ -44,21 +48,23 @@ export default class Play extends Phaser.State {
   spawnPlatform() {
     let platform = this.platforms.getFirstExists(false);
     if( !platform ) {
-      console.log(`added platform`);
       platform = new Platform(this.game);
       this.platforms.add(platform);
     }
 
     // TODO: RESET PLATFORM
+
+    this.platformDelay();
   }
 
   platformDelay() {
+    console.log(`generate delay`);
     // destroy old timer
     if (this.platformDelayTimer) {
       this.platformDelayTimer.timer.destroy();
     }
     // new timer
-    this.platformDelayTimer = this.time.events.loop(this.game.rnd.integerInRange(500, 4000), this.spawnPlatform, this);
+    this.platformDelayTimer = this.time.events.loop(/*this.game.rnd.integerInRange(500, 4000)*/ Phaser.Timer.SECOND, this.spawnPlatform, this);
     this.platformDelayTimer.timer.start();
   }
 
@@ -75,7 +81,7 @@ export default class Play extends Phaser.State {
 
     // move platforms
     // TODO: MOVE __ALL__ PLATFORMS
-    this.startPlatform.x -= this.speed / 30;
+    this.startPlatform.x -= this.speed / 600;
 
     // move title away
     this.titleLeftPos -= (this.speed / 50);
