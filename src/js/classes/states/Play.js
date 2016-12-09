@@ -18,10 +18,6 @@ export default class Play extends Phaser.State {
 
     this.platforms = this.add.group();
     this.platformDelay();
-
-    // FIXME:
-    // FIXME: PLATFORMS DON'T SPAWN AFTER FOX JUMP!!!
-    // FIXME: 
   }
 
   createBackground() {
@@ -39,7 +35,7 @@ export default class Play extends Phaser.State {
   }
 
   createStartPlatform() {
-    this.startPlatform = new Platform(this.game, `startPlatform`);
+    this.startPlatform = new Platform(this.game, [`P3_T1_T`, `P3_T1_B`]);
     this.add.existing(this.startPlatform);
     this.startPlatform.x = 0;
     this.startPlatform.y = 240;
@@ -51,20 +47,19 @@ export default class Play extends Phaser.State {
       platform = new Platform(this.game);
       this.platforms.add(platform);
     }
+    let platformWidth = platform.platformSurface._frame.width;
+    platform.reset(this.world.bounds.width, 240);
 
-    // TODO: RESET PLATFORM
-
-    this.platformDelay();
+    this.platformDelay(platformWidth * 4);
   }
 
-  platformDelay() {
-    console.log(`generate delay`);
+  platformDelay(delay = 100) {
     // destroy old timer
     if (this.platformDelayTimer) {
       this.platformDelayTimer.timer.destroy();
     }
     // new timer
-    this.platformDelayTimer = this.time.events.loop(/*this.game.rnd.integerInRange(500, 4000)*/ Phaser.Timer.SECOND, this.spawnPlatform, this);
+    this.platformDelayTimer = this.time.events.loop(delay, this.spawnPlatform, this);
     this.platformDelayTimer.timer.start();
   }
 
@@ -76,12 +71,20 @@ export default class Play extends Phaser.State {
   update() {
 
     // collide fox with platforms
-    // TODO: COLLIDE FOX WITH __ALL__ PLATFORMS
-    this.physics.arcade.collide(this.fox, this.startPlatform, null, null, this);
+    this.platforms.forEach(platform => {
+      this.physics.arcade.collide(this.fox, platform, null, null, this);
+    });
 
     // move platforms
-    // TODO: MOVE __ALL__ PLATFORMS
-    this.startPlatform.x -= this.speed / 600;
+    this.platforms.forEach(platform => {
+      platform.x -= this.speed / 20;
+    });
+
+    // startPlatform
+    if (this.startPlatform.exists) {
+      this.physics.arcade.collide(this.fox, this.startPlatform, null, null, this);
+      this.startPlatform.x -= this.speed / 20;
+    }
 
     // move title away
     this.titleLeftPos -= (this.speed / 50);
@@ -100,14 +103,7 @@ export default class Play extends Phaser.State {
   checkKeyboard() {
     if (this.space.isDown && this.fox.body.wasTouching.down) {
       this.fox.jump();
-
-      this.jumpTimer = this.time.events.add(Phaser.Timer.SECOND / 2.6, this.foxRun, this);
-      this.jumpTimer.timer.start();
     }
   }
 
-  foxRun() {
-    this.jumpTimer.timer.stop();
-    this.fox.run();
-  }
 }
