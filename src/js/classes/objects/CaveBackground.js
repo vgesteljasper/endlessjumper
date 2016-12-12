@@ -3,7 +3,7 @@ export default class CaveBackground extends Phaser.Sprite {
     super(game, x, y, 'cave', frame);
 
     this.checkWorldBounds = true;
-    this.scale.setTo(1.7);
+    this.scale.setTo(.1);
   }
 
   getRandomCave() {

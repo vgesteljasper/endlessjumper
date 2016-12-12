@@ -16,15 +16,17 @@ export default class Play extends Phaser.State {
     this.createTitle();
     this.caves = this.add.group();
     this.createStartPlatform();
-    this.addFox();
-    this.keyBindings();
+    // this.chickens = this.add.group();
     this.platforms = this.add.group();
+    this.addFox();
 
     this.music = this.add.sound(`sound`);
     //this.music.play();
 
     this.platformDelay();
     // this.caveDelay();
+
+    this.keyBindings();
   }
 
   createBackground() {
@@ -101,8 +103,8 @@ export default class Play extends Phaser.State {
       console.log(`create timer`);
     }
 
-    let delay = this.game.rnd.integerInRange(100, 200);
-    this.caveDelayTimer = this.time.events.add(delay, this.spawnCave, this);
+    // let delay = this.game.rnd.integerInRange(100, 200);
+    this.caveDelayTimer = this.time.events.add(50, this.spawnCave, this);
     this.caveDelayTimer.timer.start();
   }
 
@@ -113,7 +115,7 @@ export default class Play extends Phaser.State {
       this.caves.add(cave);
     }
 
-    cave.reset(this.world.bounds.width, -50);
+    // cave.reset(this.world.bounds.width, -50);
 
     this.caveDelay();
   }
@@ -160,6 +162,12 @@ export default class Play extends Phaser.State {
     }
 
     this.checkKeyboard();
+  }
+
+  render() {
+    // console.log(this);
+    // this.game.debug.text(`platform: ${this.platformDelayTimer.tick}`, 32, 32);
+    // this.game.debug.text(`cave: ${this.caveDelayTimer.tick}`, 32, 64);
   }
 
 }
