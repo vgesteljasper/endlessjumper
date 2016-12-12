@@ -1,4 +1,4 @@
-export default class PlatformTile extends Phaser.Sprite {
+export default class PlatformPart extends Phaser.Sprite {
   constructor(game, x, y, frame) {
     super(game, x, y, 'platform', frame);
 

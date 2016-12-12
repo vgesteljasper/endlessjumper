@@ -1,3 +1,4 @@
+import PlatformStart from '../objects/PlatformGroupStart';
 import Platform from '../objects/PlatformGroup';
 import Fox from '../objects/Fox';
 
@@ -7,7 +8,7 @@ export default class Play extends Phaser.State {
     this.physics.startSystem(Phaser.Physics.ARCADE);
     this.physics.arcade.gravity.y = 700;
 
-    this.speed = 200;
+    this.speed = 10;
     this.titleLeftPos = this.world.centerX;
 
     this.createBackground();
@@ -35,7 +36,7 @@ export default class Play extends Phaser.State {
   }
 
   createStartPlatform() {
-    this.startPlatform = new Platform(this.game, `P3_T1`);
+    this.startPlatform = new PlatformStart(this.game, `P3_T1`);
     this.add.existing(this.startPlatform);
     this.startPlatform.x = 0;
     this.startPlatform.y = 240;
@@ -48,8 +49,7 @@ export default class Play extends Phaser.State {
       this.platforms.add(platform);
     }
     let platformWidth = platform.children[0]._frame.width;
-    console.log(platformWidth);
-    platform.reset(this.world.bounds.width, 240);
+    platform.reset(this.world.bounds.width, 240, this);
 
     this.platformDelay(platformWidth * 4);
   }
@@ -76,19 +76,31 @@ export default class Play extends Phaser.State {
       this.physics.arcade.collide(this.fox, platform, null, null, this);
     });
 
+    // kill fox if it fell of platform
+    if (this.fox.y > 2000) {
+      this.fox.kill();
+      this.killScreen();
+    } else if (this.fox.y > 224) {
+      this.speed = 0;
+      this.fox.fall();
+      if (this.platformDelayTimer) {
+        this.platformDelayTimer.timer.destroy();
+      }
+    }
+
     // move platforms
     this.platforms.forEach(platform => {
-      platform.x -= this.speed / 20;
+      platform.x -= this.speed;
     });
 
     // startPlatform
     if (this.startPlatform.exists) {
       this.physics.arcade.collide(this.fox, this.startPlatform, null, null, this);
-      this.startPlatform.x -= this.speed / 20;
+      this.startPlatform.x -= this.speed;
     }
 
     // move title away
-    this.titleLeftPos -= (this.speed / 50);
+    this.titleLeftPos -= (this.speed / 2);
     if (this.titleLeftPos > -400) {
       this.title.position.x = this.titleLeftPos;
     }
@@ -96,9 +108,9 @@ export default class Play extends Phaser.State {
     this.checkKeyboard();
   }
 
-  // render() {
-  //   this.game.debug.body(this.fox);
-  // }
+  killScreen() {
+    // this.state.start('Menu');
+  }
 
   keyBindings() {
     this.space = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
