@@ -1,0 +1,25 @@
+{
+	"frames": {
+		"C1": {
+			"frame": {"x":0,"y":0,"w":264,"h":400},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":264,"h":400},
+			"sourceSize": {"w":264,"h":400}
+		},
+		"C2": {
+			"frame": {"x":264,"y":0,"w":280,"h":400},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":280,"h":400},
+			"sourceSize": {"w":280,"h":400}
+		}
+	},
+	"meta": {
+		"version": "1.0.0",
+		"image": "cave_sprite.png",
+		"format": "RGBA8888",
+		"size": {"w":544,"h":400},
+		"scale": "1"
+	}
+}

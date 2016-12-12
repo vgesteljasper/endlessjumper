@@ -1,44 +1,24 @@
 export default class Preload extends Phaser.State {
   preload() {
-    this.asset = this.add.sprite(this.game.width/2,this.game.height/2, 'preloader');
+    this.asset = this.add.sprite(this.game.width/2,this.game.height/2, `preloader`);
     this.asset.animations.add(`preloading`);
     this.asset.animations.play(`preloading`, 30, true);
     this.asset.anchor.setTo(0.5, 0.5);
 
-// envirement
-    this.load.image(`clouds`, `assets/clouds.png`);
-    this.load.image(`sky`, `assets/sky.png`);
-    this.load.image(`sea`, `assets/sea.png`);
+    this.load.image(`clouds`, `assets/images/clouds.png`);
+    this.load.image(`sky`, `assets/images/sky.png`);
+    this.load.image(`sea`, `assets/images/sea.png`);
 
-// platforms
-    this.load.atlasJSONHash('platform', 'assets/platform_sprite.png', 'assets/platform_sprite.json');
+    this.load.atlasJSONHash(`platform`, `assets/images/platform_sprite.png`, `assets/data/platform_sprite.json`);
+    this.load.atlasJSONHash(`cave`, `assets/images/cave_sprite.png`, `assets/data/cave_sprite.json`);
+    this.load.atlasJSONHash(`icons`, `assets/images/icons.png`, `assets/data/icons.json`);
+    this.load.atlasJSONHash(`fox`, `assets/images/fox.png`, `assets/data/fox.json`);
 
-
-    // this.load.atlasJSONHash('StartPlatform', 'assets/start_platform.png', 'assets/start_platform.json');
-    // this.load.atlasJSONHash('foxStill', 'assets/fox_still.png', 'assets/fox_still.json');
-
-// characters
-    // this.load.atlasJSONHash('foxRun', 'assets/fox_run.png', 'assets/fox_run.json');
-    // this.load.atlasJSONHash('foxJump', 'assets/fox_jump.png', 'assets/fox_jump.json');
-    this.load.atlasJSONHash('fox', 'assets/fox.png', 'assets/fox.json');
-    this.load.atlasJSONHash('chicken', 'assets/chicken_fly.png', 'assets/chicken_fly.json');
-
-// icons
-    this.load.atlasJSONHash('icons', 'assets/icons.png', 'assets/icons.json');
-
-// oudio
-    this.load.audio(`sound`, `assets/sound.mp3`);
-
-    // this.load.image(`background`, `assets/bg.png`);
-    // this.load.atlasJSONHash('components', 'assets/components.png', 'assets/components.json');
-    // this.load.atlasJSONHash('player', 'assets/player.png', 'assets/player.json');
-    // this.load.atlasJSONHash('tiles', 'assets/tiles.png', 'assets/tiles.json');
-    //
-    // this.load.audio(`coin`, `assets/coin.mp3`);
-    // this.load.audio(`explosion`, `assets/explosion.wav`);
-    // this.load.audio(`jump`, `assets/jump.wav`);
+    this.load.audio(`sound`, `assets/sounds/sound.mp3`);
+    this.load.audio(`game_over`, `assets/sounds/game_over.wav`);
+    this.load.audio(`jump_start`, `assets/sounds/jump_start.wav`);
   }
   create() {
-    this.state.start('Menu');
+    this.state.start(`Menu`);
   }
 }

@@ -9,7 +9,7 @@
          WebFontConfig = {
            custom: {
               families: ['BigJohn', 'DINRegular', 'DINMedium'],
-              urls: ['assets/BigJohn/big_john.css', 'assets/DinRegular/din_regular.css', 'assets/DinMedium/din_medium.css']
+              urls: ['assets/fonts/BigJohn/big_john.css', 'assets/fonts/DinRegular/din_regular.css', 'assets/fonts/DinMedium/din_medium.css']
             }
          };
          (function(d) {
