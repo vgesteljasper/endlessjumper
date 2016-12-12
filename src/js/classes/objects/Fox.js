@@ -14,6 +14,8 @@ export default class Fox extends Phaser.Sprite {
     game.physics.arcade.enableBody(this);
     this.body.gravity.y = 4000;
     this.body.collideWorldBounds = true;
+
+    this.body.setSize(50, 24, 30, 0);
   }
 
   jump() {

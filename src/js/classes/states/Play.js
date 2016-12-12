@@ -35,7 +35,7 @@ export default class Play extends Phaser.State {
   }
 
   createStartPlatform() {
-    this.startPlatform = new Platform(this.game, [`P3_T1_T`, `P3_T1_B`]);
+    this.startPlatform = new Platform(this.game, `P3_T1`);
     this.add.existing(this.startPlatform);
     this.startPlatform.x = 0;
     this.startPlatform.y = 240;
@@ -47,7 +47,8 @@ export default class Play extends Phaser.State {
       platform = new Platform(this.game);
       this.platforms.add(platform);
     }
-    let platformWidth = platform.platformSurface._frame.width;
+    let platformWidth = platform.children[0]._frame.width;
+    console.log(platformWidth);
     platform.reset(this.world.bounds.width, 240);
 
     this.platformDelay(platformWidth * 4);
@@ -95,6 +96,9 @@ export default class Play extends Phaser.State {
     this.checkKeyboard();
   }
 
+  // render() {
+  //   this.game.debug.body(this.fox);
+  // }
 
   keyBindings() {
     this.space = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);

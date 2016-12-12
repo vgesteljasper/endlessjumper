@@ -6,29 +6,18 @@ export default class PlatformGroup extends Phaser.Group {
 
     if (!spriteReference) {
       let options = [
-        [`P1_T1_T`, `P1_T1_B`],
-        [`P2_T1_T`, `P2_T1_B`],
-        [`P3_T1_T`, `P3_T1_B`],
-        [`P4_T1_T`, `P4_T1_B`],
-        [`P5_T1_T`, `P5_T1_B`],
-        [`P6_T1_T`, `P6_T1_B`]
+        `P1_T1`,
+        `P2_T1`,
+        `P3_T1`,
+        `P4_T1`,
+        `P5_T1`,
+        `P6_T1`
       ];
       spriteReference = options[Math.floor(Math.random()*options.length)];
     }
 
-    // top part
-    this.platformSurface = new PlatformPart(game, 0, 0, spriteReference[0]);
-    this.platformSurface.events.onOutOfBounds.add(this.kill, this);
-
-    // bottom part
-    this.platformMass = new PlatformPart(game, 0, 20.4, spriteReference[1]);
-    game.physics.arcade.enableBody(this.platformMass);
-    this.platformMass.body.allowGravity = false;
-    this.platformMass.body.immovable = true;
-
-    // add to group
-    this.add(this.platformSurface);
-    this.add(this.platformMass);
+    this.platformPart = new PlatformPart(game, 0, 0, spriteReference);
+    this.add(this.platformPart);
   }
 
   kill() {
