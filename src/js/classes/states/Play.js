@@ -24,7 +24,7 @@ export default class Play extends Phaser.State {
     //this.music.play();
 
     this.platformDelay();
-    // this.caveDelay();
+    this.caveDelay();
 
     this.keyBindings();
   }
@@ -51,6 +51,7 @@ export default class Play extends Phaser.State {
   }
 
   spawnPlatform() {
+    console.log(`spawned platform`);
     let platform = this.platforms.getFirstExists(false);
     if( !platform ) {
       platform = new Platform(this.game);
@@ -68,7 +69,8 @@ export default class Play extends Phaser.State {
   platformDelay(delay = 100) {
     // destroy old timer
     if (this.platformDelayTimer) {
-      this.platformDelayTimer.timer.destroy();
+      // this.platformDelayTimer.timer.destroy();
+      this.time.events.remove(this.platformDelayTimer);
     }
     // new timer
     this.platformDelayTimer = this.time.events.add(delay, this.spawnPlatform, this);
@@ -97,25 +99,22 @@ export default class Play extends Phaser.State {
 
   caveDelay() {
     if (this.caveDelayTimer) {
-      this.caveDelayTimer.timer.destroy();
-      console.log(`reuse timer`);
-    } else {
-      console.log(`create timer`);
+      // this.caveDelayTimer.timer.destroy();
+      this.time.events.remove(this.caveDelayTimer);
     }
 
-    // let delay = this.game.rnd.integerInRange(100, 200);
-    this.caveDelayTimer = this.time.events.add(50, this.spawnCave, this);
+    let delay = this.game.rnd.integerInRange(5000, 20000);
+    this.caveDelayTimer = this.time.events.add(delay, this.spawnCave, this);
     this.caveDelayTimer.timer.start();
   }
 
   spawnCave() {
     let cave = this.caves.getFirstExists(false);
     if (!cave) {
-      cave = new CaveBackground(this, this.world.bounds.width, 0, `C1`);
+      cave = new CaveBackground(this, this.world.bounds.width, -100, `C1`);
       this.caves.add(cave);
     }
-
-    // cave.reset(this.world.bounds.width, -50);
+    cave.reset(this.world.bounds.width, -100);
 
     this.caveDelay();
   }
