@@ -1,7 +1,7 @@
 <?php
 
 class DAO {
-	private static $dbHost = "root.dev";
+	private static $dbHost = "localhost:8888";
 	private static $dbName = "howest";
 	private static $dbUser = "root";
 	private static $dbPass = "root";
