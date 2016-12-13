@@ -1,32 +1,58 @@
 import PlatformStart from '../objects/PlatformGroupStart';
 import CaveBackground from '../objects/CaveBackground';
 import Platform from '../objects/PlatformGroup';
+import ScoreBoard from '../objects/Scoreboard';
 import Fox from '../objects/Fox';
 
 export default class Play extends Phaser.State {
 
   create() {
+
+    const button = this.cache.getImage(`button`);
+    console.log(button.width);
     this.physics.startSystem(Phaser.Physics.ARCADE);
     this.physics.arcade.gravity.y = 700;
 
+    // variables
     this.speed = 10;
     this.titleLeftPos = this.world.centerX;
+    this.isGameOver = false;
+    this.startTime = this.time.now;
+    this.scoreActive = false;
+    this.score = 0;
 
+    // add items
     this.createBackground();
     this.createTitle();
     this.caves = this.add.group();
     this.createStartPlatform();
-    // this.chickens = this.add.group();
     this.platforms = this.add.group();
     this.addFox();
 
+    // music
     this.music = this.add.sound(`sound`);
     //this.music.play();
 
+    // timers
     this.platformDelay();
     this.caveDelay();
 
+    // extras
     this.keyBindings();
+    this.createScore();
+  }
+
+  createScore() {
+    this.scoreText = this.add.text(32,32, `score: `, {
+      font: `10px BigJohn`,
+      fill: `black`
+    });
+    this.scoreActive = true;
+  }
+
+  updateScore() {
+    this.score += (this.time.now - this.startTime) / 1000;
+    this.scoreText.setText(`score: ${Math.floor(this.score)}`);
   }
 
   createBackground() {
@@ -82,8 +108,13 @@ export default class Play extends Phaser.State {
     this.add.existing(this.fox);
   }
 
-  killScreen() {
-    this.state.start('Menu');
+  gameOver() {
+    this.isGameOver = true;
+
+    this.fox.kill();
+    this.scoreboard = new ScoreBoard(this);
+    this.scoreboard.show(this.score);
+    this.add.existing(this.scoreboard);
   }
 
   keyBindings() {
@@ -119,7 +150,20 @@ export default class Play extends Phaser.State {
     this.caveDelay();
   }
 
+  foxFall() {
+    this.scoreActive = false;
+    this.speed = 0;
+    this.fox.fall();
+    if (this.platformDelayTimer) {
+      this.platformDelayTimer.timer.destroy();
+    }
+  }
+
   update() {
+
+    if (this.scoreActive) {
+      this.updateScore();
+    }
 
     // collide fox with platforms
     this.platforms.forEach(platform => {
@@ -128,14 +172,9 @@ export default class Play extends Phaser.State {
 
     // kill fox if it fell of platform
     if (this.fox.y > 2000) {
-      this.fox.kill();
-      this.killScreen();
+      this.gameOver();
     } else if (this.fox.y > 300) {
-      this.speed = 0;
-      this.fox.fall();
-      if (this.platformDelayTimer) {
-        this.platformDelayTimer.timer.destroy();
-      }
+      this.foxFall();
     }
 
     // move platforms
@@ -164,8 +203,7 @@ export default class Play extends Phaser.State {
   }
 
   render() {
-    // console.log(this);
-    // this.game.debug.text(`platform: ${this.platformDelayTimer.tick}`, 32, 32);
+    // this.game.debug.text(`time: ${this.time.now - this.startTime}`, 32, 32);
     // this.game.debug.text(`cave: ${this.caveDelayTimer.tick}`, 32, 64);
   }
 
