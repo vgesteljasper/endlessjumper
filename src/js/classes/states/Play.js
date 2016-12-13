@@ -43,16 +43,16 @@ export default class Play extends Phaser.State {
   }
 
   createScore() {
-    this.scoreText = this.add.text(32,32, `score: `, {
-      font: `10px BigJohn`,
+    this.scoreText = this.add.text(32,32, ``, {
+      font: `20px BigJohn`,
       fill: `black`
     });
     this.scoreActive = true;
   }
 
   updateScore() {
-    this.score += (this.time.now - this.startTime) / 1000;
-    this.scoreText.setText(`score: ${Math.floor(this.score)}`);
+    this.score = (this.time.now - this.startTime) / 400;
+    this.scoreText.setText(`${Math.floor(this.score)}m`);
   }
 
   createBackground() {

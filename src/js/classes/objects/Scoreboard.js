@@ -30,6 +30,6 @@ export default class ScoreBoard extends Phaser.Group {
   }
 
   show(score) {
-    this.scoreText.setText(`score: ${Math.floor(score)}`);
+    this.scoreText.setText(`score: ${Math.floor(score)}m`);
   }
 }

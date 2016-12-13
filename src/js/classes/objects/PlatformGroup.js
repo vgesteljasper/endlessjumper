@@ -17,7 +17,7 @@ export default class PlatformGroup extends Phaser.Group {
       this.platformTree = new PlatformTree(game, 0, 0, treeKey);
     }
 
-    if (random < .4) {
+    if (random < .35) {
       let platformWidthChicken = this.game.cache.getFrameByName(`platform`, platformKey).width - 18;
       let position = this.game.rnd.integerInRange(18, platformWidthChicken);
 
