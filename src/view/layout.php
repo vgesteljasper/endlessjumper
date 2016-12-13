@@ -15,7 +15,7 @@
          (function(d) {
             var wf = d.createElement('script'), s = d.scripts[0];
             wf.async = true;
-            wf.src = 'js/webfontloader.js';
+            wf.src = 'js/vendors/webfontloader.js';
             s.parentNode.insertBefore(wf, s);
          })(document);
         </script>
