@@ -28,9 +28,6 @@ export default class PlatformGroup extends Phaser.Group {
     this.platformPart = new PlatformPart(game, 0, 0, platformKey);
 
     this.add(this.platformPart);
-    // if (this.platformTree) {
-    //   this.add(this.platformTree);
-    // }
     if (this.chicken) {
       this.add(this.chicken);
     }
