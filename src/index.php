@@ -16,7 +16,7 @@ $routes = array(
     'controller' => 'Game',
     'action' => 'index'
   ),
-  'home' => array(
+  'score' => array(
     'controller' => 'Score',
     'action' => 'index'
   )

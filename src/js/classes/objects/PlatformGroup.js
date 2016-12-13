@@ -1,5 +1,5 @@
-import PlatformPart from './PlatformPart';
-import PlatformTree from './PlatformTree';
+import Platform from './Platform';
+import Tree from './Tree';
 import Chicken from './Chicken';
 
 export default class PlatformGroup extends Phaser.Group {
@@ -14,7 +14,7 @@ export default class PlatformGroup extends Phaser.Group {
     let random = this.getRandomNumber();
     if (random < .2) {
       let treeKey = this.getRandomTree();
-      this.platformTree = new PlatformTree(game, 0, 0, treeKey);
+      this.platformTree = new Tree(game, 0, 0, treeKey);
     }
 
     if (random < .35) {
@@ -25,7 +25,7 @@ export default class PlatformGroup extends Phaser.Group {
       this.chicken = new Chicken(game, position, -30);
     }
 
-    this.platformPart = new PlatformPart(game, 0, 0, platformKey);
+    this.platformPart = new Platform(game, 0, 0, platformKey);
 
     this.add(this.platformPart);
     if (this.chicken) {
@@ -74,7 +74,7 @@ export default class PlatformGroup extends Phaser.Group {
 
       // new tree
       let treeKey = this.getRandomTree();
-      this.platformTree = new PlatformTree(game, position, -170, treeKey);
+      this.platformTree = new Tree(game, position, -170, treeKey);
       this.add(this.platformTree);
     }
 

@@ -1,8 +1,8 @@
 import PlatformStart from '../objects/PlatformGroupStart';
-import CaveBackground from '../objects/CaveBackground';
 import Platform from '../objects/PlatformGroup';
-import ScoreBoard from '../objects/Scoreboard';
+import Cave from '../objects/Cave';
 import Fox from '../objects/Fox';
+import ScoreBoard from '../objects/Scoreboard';
 
 export default class Play extends Phaser.State {
 
@@ -110,6 +110,8 @@ export default class Play extends Phaser.State {
   gameOver() {
     this.isGameOver = true;
 
+    this.pushDataToServer();
+
     this.fox.kill();
     this.scoreboard = new ScoreBoard(this);
     this.scoreboard.show(this.score);
@@ -141,7 +143,7 @@ export default class Play extends Phaser.State {
   spawnCave() {
     let cave = this.caves.getFirstExists(false);
     if (!cave) {
-      cave = new CaveBackground(this, this.world.bounds.width, -100, `C1`);
+      cave = new Cave(this, this.world.bounds.width, -100, `C1`);
       this.caves.add(cave);
     }
     cave.reset(this.world.bounds.width, -100);
@@ -170,7 +172,7 @@ export default class Play extends Phaser.State {
     });
 
     // kill fox if it fell of platform
-    if (this.fox.y > 2000) {
+    if (this.fox.y > 2000 && !this.isGameOver) {
       this.gameOver();
     } else if (this.fox.y > 300) {
       this.foxFall();
@@ -204,6 +206,30 @@ export default class Play extends Phaser.State {
   render() {
     // this.game.debug.text(`time: ${this.time.now - this.startTime}`, 32, 32);
     // this.game.debug.text(`cave: ${this.caveDelayTimer.tick}`, 32, 64);
+  }
+
+  pushDataToServer() {
+    const data = new FormData();
+    data.append(`action`, `add-stat`);
+    data.append(`duration`, `${this.time.now}`);
+    data.append(`score`, `${this.score}`);
+    data.append(`username`, `anonymous`);
+
+    fetch(`/index.php?page=score&t=${Date.now()}`, {
+      headers: new Headers({
+        Accept: `application/json`
+      }),
+      method: `post`,
+      body: data
+    })
+    .then(response => response.json())
+    .then(result => {
+      if(result.result === `ok`) {
+        console.log(`successfully posted stat to server`);
+      } else {
+        console.log(`failed to post stat to server`);
+      }
+    });
   }
 
 }
