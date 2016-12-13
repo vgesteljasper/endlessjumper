@@ -43,7 +43,7 @@ export default class Play extends Phaser.State {
   }
 
   createScore() {
-    this.scoreText = this.add.text(32,32, ``, {
+    this.scoreText = this.add.text(32, 32, ``, {
       font: `20px BigJohn`,
       fill: `black`
     });
@@ -56,13 +56,13 @@ export default class Play extends Phaser.State {
   }
 
   createBackground() {
-    this.sky = this.add.tileSprite(0, 0, this.game.width, 304, 'sky');
-    this.sea = this.add.tileSprite(0, 304, this.game.width, 500, 'sea');
-    this.clouds = this.add.tileSprite(0, 80, this.game.width, 236, 'clouds');
+    this.sky = this.add.tileSprite(0, 0, this.game.width, 304, `sky`);
+    this.sea = this.add.tileSprite(0, 304, this.game.width, 500, `sea`);
+    this.clouds = this.add.tileSprite(0, 80, this.game.width, 236, `clouds`);
   }
 
   createTitle() {
-    this.title = this.add.text(this.world.centerX,230, `outfox the bear`, {
+    this.title = this.add.text(this.world.centerX, 230, `outfox the bear`, {
       font: `65px BigJohn`,
       fill: `white`
     });
@@ -78,14 +78,14 @@ export default class Play extends Phaser.State {
 
   spawnPlatform() {
     let platform = this.platforms.getFirstExists(false);
-    if( !platform ) {
+    if (!platform) {
       platform = new Platform(this.game);
       this.platforms.add(platform);
     }
 
-    let platformWidth = platform.children[0]._frame.width;
+    const platformWidth = platform.children[0]._frame.width;
 
-    let yPos = this.game.rnd.integerInRange(210, 270);
+    const yPos = this.game.rnd.integerInRange(210, 270);
     platform.reset(this.world.bounds.width, yPos, this);
 
     this.platformDelay(platformWidth * 3.8);
@@ -135,7 +135,7 @@ export default class Play extends Phaser.State {
       this.time.events.remove(this.caveDelayTimer);
     }
 
-    let delay = this.game.rnd.integerInRange(5000, 20000);
+    const delay = this.game.rnd.integerInRange(5000, 20000);
     this.caveDelayTimer = this.time.events.add(delay, this.spawnCave, this);
     this.caveDelayTimer.timer.start();
   }
@@ -143,10 +143,10 @@ export default class Play extends Phaser.State {
   spawnCave() {
     let cave = this.caves.getFirstExists(false);
     if (!cave) {
-      cave = new Cave(this, this.world.bounds.width, -100, `C1`);
+      cave = new Cave(this, this.world.bounds.width, - 100, `C1`);
       this.caves.add(cave);
     }
-    cave.reset(this.world.bounds.width, -100);
+    cave.reset(this.world.bounds.width, - 100);
 
     this.caveDelay();
   }
@@ -196,7 +196,7 @@ export default class Play extends Phaser.State {
 
     // move title away
     this.titleLeftPos -= (this.speed / 2);
-    if (this.titleLeftPos > -400) {
+    if (this.titleLeftPos > - 400) {
       this.title.position.x = this.titleLeftPos;
     }
 
@@ -224,7 +224,7 @@ export default class Play extends Phaser.State {
     })
     .then(response => response.json())
     .then(result => {
-      if(result.result === `ok`) {
+      if (result.result === `ok`) {
         console.log(`successfully posted stat to server`);
       } else {
         console.log(`failed to post stat to server`);

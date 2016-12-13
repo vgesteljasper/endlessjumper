@@ -1,6 +1,6 @@
 export default class Platform extends Phaser.Sprite {
   constructor(game, x, y, frame) {
-    super(game, x, y, 'platform', frame);
+    super(game, x, y, `platform`, frame);
 
     this.checkWorldBounds = true;
     game.physics.arcade.enableBody(this);

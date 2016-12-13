@@ -3,7 +3,7 @@ export default class Fox extends Phaser.Sprite {
   constructor(game, x, y) {
     super(game, x, y, `fox`);
 
-    this.scale.setTo(-1, 1);
+    this.scale.setTo(- 1, 1);
 
     // animations
     this.animations.add(`run`, Phaser.Animation.generateFrameNames(`fox_`, 1, 12, `.png`, 2), 30, true, false);
@@ -19,8 +19,8 @@ export default class Fox extends Phaser.Sprite {
   }
 
   jump() {
-    this.body.velocity.y = -1150;
-    let jumpAnimation = this.animations.play(`jump`).onComplete.add(this.run, this);
+    this.body.velocity.y = - 1150;
+    this.animations.play(`jump`).onComplete.add(this.run, this);
   }
 
   fall() {

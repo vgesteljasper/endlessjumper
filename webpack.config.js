@@ -32,6 +32,12 @@ const config = {
         use: [
           {
             loader: `babel-loader`
+          },
+          {
+            loader: `eslint-loader`,
+            options: {
+              fix: true
+            }
           }
         ]
       },
@@ -48,7 +54,7 @@ const config = {
   }
 };
 
-if(process.env.NODE_ENV === `production`){
+if (process.env.NODE_ENV === `production`) {
   const ExtractTextWebpackPlugin = require(`extract-text-webpack-plugin`);
   const {UglifyJsPlugin} = webpack.optimize;
   const extractCSS = new ExtractTextWebpackPlugin(`css/style.css`);

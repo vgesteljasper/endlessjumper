@@ -1,15 +1,15 @@
 import Game from './classes/Game';
 
 const init = () => {
-  if(isWebfontLoaded()) {
+  if (isWebfontLoaded()) {
     startGame();
     return;
   }
-  window.WebFontConfig.active = e => startGame();
+  window.WebFontConfig.active = () => startGame();
 };
 
 const isWebfontLoaded = () => {
-  return document.documentElement.classList.contains('wf-active');
+  return document.documentElement.classList.contains(`wf-active`);
 };
 
 const startGame = () => {
