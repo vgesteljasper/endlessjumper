@@ -1,2 +1,2 @@
 <div id="game_wrapper"></div>
-<script src="js/phaser.min.js"></script>
+<script src="js/vendors/phaser.min.js"></script>
