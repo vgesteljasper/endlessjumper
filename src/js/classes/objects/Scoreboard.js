@@ -11,7 +11,7 @@ export default class ScoreBoard extends Phaser.Group {
 
     const buttonGroup = this.game.add.group();
 
-    const restartButton = this.game.add.button(0, 0, `button`, this.restartGame, this);
+    const restartButton = this.game.add.button(0, 0, `button`, this.restartGame, this, `button_hover`);
     const restartButtonText = this.game.add.text(90, 22, `restart`, {
       font: `20px BigJohn`,
       fill: `white`
