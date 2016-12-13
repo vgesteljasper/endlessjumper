@@ -1,8 +1,8 @@
 <?php
 
 class DAO {
-	private static $dbHost = "localhost";
-	private static $dbName = "phasergame";
+	private static $dbHost = "root.dev";
+	private static $dbName = "howest";
 	private static $dbUser = "root";
 	private static $dbPass = "root";
 	private static $sharedPDO;

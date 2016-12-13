@@ -1,9 +1,5 @@
-# macOS
 .DS_Store
-
-# node
 node_modules
 npm-debug.log
-
-# webpack
 dist
+src/dao/DAO.php
