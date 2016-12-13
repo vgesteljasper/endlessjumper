@@ -13,6 +13,7 @@ export default class Preload extends Phaser.State {
     this.load.atlasJSONHash(`cave`, `assets/images/cave_sprite.png`, `assets/data/cave_sprite.json`);
     this.load.atlasJSONHash(`icons`, `assets/images/icons.png`, `assets/data/icons.json`);
     this.load.atlasJSONHash(`fox`, `assets/images/fox.png`, `assets/data/fox.json`);
+    this.load.atlasJSONHash(`chicken`, `assets/images/chicken.png`, `assets/data/chicken.json`);
 
     this.load.audio(`sound`, `assets/sounds/sound.mp3`);
     this.load.audio(`game_over`, `assets/sounds/game_over.wav`);

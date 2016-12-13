@@ -51,7 +51,6 @@ export default class Play extends Phaser.State {
   }
 
   spawnPlatform() {
-    console.log(`spawned platform`);
     let platform = this.platforms.getFirstExists(false);
     if( !platform ) {
       platform = new Platform(this.game);
