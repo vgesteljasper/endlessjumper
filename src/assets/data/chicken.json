@@ -1,6 +1,6 @@
 ﻿{"frames": {
 
-"chicken_fly01.png":
+"chicken_01.png":
 {
 	"frame": {"x":0,"y":0,"w":62,"h":64},
 	"rotated": false,
@@ -8,7 +8,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":62,"h":64},
 	"sourceSize": {"w":62,"h":64}
 },
-"chicken_fly02.png":
+"chicken_02.png":
 {
 	"frame": {"x":62,"y":0,"w":67,"h":57},
 	"rotated": false,
@@ -16,7 +16,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":67,"h":57},
 	"sourceSize": {"w":67,"h":57}
 },
-"chicken_fly03.png":
+"chicken_03.png":
 {
 	"frame": {"x":129,"y":0,"w":68,"h":56},
 	"rotated": false,
@@ -24,7 +24,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":68,"h":56},
 	"sourceSize": {"w":68,"h":56}
 },
-"chicken_fly04.png":
+"chicken_04.png":
 {
 	"frame": {"x":197,"y":0,"w":71,"h":51},
 	"rotated": false,
@@ -32,7 +32,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":71,"h":51},
 	"sourceSize": {"w":71,"h":51}
 },
-"chicken_fly05.png":
+"chicken_05.png":
 {
 	"frame": {"x":268,"y":0,"w":66,"h":55},
 	"rotated": false,
@@ -40,7 +40,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":66,"h":55},
 	"sourceSize": {"w":66,"h":55}
 },
-"chicken_fly06.png":
+"chicken_06.png":
 {
 	"frame": {"x":334,"y":0,"w":64,"h":58},
 	"rotated": false,
@@ -48,7 +48,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":58},
 	"sourceSize": {"w":64,"h":58}
 },
-"chicken_fly07.png":
+"chicken_07.png":
 {
 	"frame": {"x":398,"y":0,"w":61,"h":61},
 	"rotated": false,
@@ -56,7 +56,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":61},
 	"sourceSize": {"w":61,"h":61}
 },
-"chicken_fly08.png":
+"chicken_08.png":
 {
 	"frame": {"x":0,"y":64,"w":58,"h":64},
 	"rotated": false,
@@ -64,7 +64,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":64},
 	"sourceSize": {"w":58,"h":64}
 },
-"chicken_fly09.png":
+"chicken_09.png":
 {
 	"frame": {"x":58,"y":64,"w":59,"h":62},
 	"rotated": false,
@@ -72,7 +72,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":62},
 	"sourceSize": {"w":59,"h":62}
 },
-"chicken_fly10.png":
+"chicken_10.png":
 {
 	"frame": {"x":117,"y":64,"w":63,"h":61},
 	"rotated": false,
@@ -80,7 +80,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":63,"h":61},
 	"sourceSize": {"w":63,"h":61}
 },
-"chicken_fly11.png":
+"chicken_11.png":
 {
 	"frame": {"x":180,"y":64,"w":62,"h":59},
 	"rotated": false,
@@ -88,7 +88,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":62,"h":59},
 	"sourceSize": {"w":62,"h":59}
 },
-"chicken_fly12.png":
+"chicken_12.png":
 {
 	"frame": {"x":242,"y":64,"w":66,"h":56},
 	"rotated": false,
@@ -96,7 +96,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":66,"h":56},
 	"sourceSize": {"w":66,"h":56}
 },
-"chicken_fly13.png":
+"chicken_13.png":
 {
 	"frame": {"x":308,"y":64,"w":65,"h":55},
 	"rotated": false,
@@ -104,7 +104,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":65,"h":55},
 	"sourceSize": {"w":65,"h":55}
 },
-"chicken_fly14.png":
+"chicken_14.png":
 {
 	"frame": {"x":373,"y":64,"w":68,"h":56},
 	"rotated": false,
@@ -112,7 +112,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":68,"h":56},
 	"sourceSize": {"w":68,"h":56}
 },
-"chicken_fly15.png":
+"chicken_15.png":
 {
 	"frame": {"x":441,"y":64,"w":64,"h":61},
 	"rotated": false,
@@ -120,7 +120,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":61},
 	"sourceSize": {"w":64,"h":61}
 },
-"chicken_fly16.png":
+"chicken_16.png":
 {
 	"frame": {"x":0,"y":128,"w":60,"h":58},
 	"rotated": false,
@@ -128,7 +128,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":58},
 	"sourceSize": {"w":60,"h":58}
 },
-"chicken_fly17.png":
+"chicken_17.png":
 {
 	"frame": {"x":60,"y":128,"w":58,"h":56},
 	"rotated": false,
@@ -136,7 +136,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":56},
 	"sourceSize": {"w":58,"h":56}
 },
-"chicken_fly18.png":
+"chicken_18.png":
 {
 	"frame": {"x":118,"y":128,"w":58,"h":56},
 	"rotated": false,
@@ -144,7 +144,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":56},
 	"sourceSize": {"w":58,"h":56}
 },
-"chicken_fly19.png":
+"chicken_19.png":
 {
 	"frame": {"x":176,"y":128,"w":66,"h":62},
 	"rotated": false,
@@ -152,7 +152,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":66,"h":62},
 	"sourceSize": {"w":66,"h":62}
 },
-"chicken_fly20.png":
+"chicken_20.png":
 {
 	"frame": {"x":242,"y":128,"w":63,"h":61},
 	"rotated": false,
@@ -160,7 +160,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":63,"h":61},
 	"sourceSize": {"w":63,"h":61}
 },
-"chicken_fly21.png":
+"chicken_21.png":
 {
 	"frame": {"x":305,"y":128,"w":63,"h":61},
 	"rotated": false,
@@ -168,7 +168,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":63,"h":61},
 	"sourceSize": {"w":63,"h":61}
 },
-"chicken_fly22.png":
+"chicken_22.png":
 {
 	"frame": {"x":368,"y":128,"w":60,"h":65},
 	"rotated": false,
@@ -176,7 +176,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":65},
 	"sourceSize": {"w":60,"h":65}
 },
-"chicken_fly23.png":
+"chicken_23.png":
 {
 	"frame": {"x":428,"y":128,"w":65,"h":58},
 	"rotated": false,
@@ -184,7 +184,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":65,"h":58},
 	"sourceSize": {"w":65,"h":58}
 },
-"chicken_fly24.png":
+"chicken_24.png":
 {
 	"frame": {"x":0,"y":193,"w":68,"h":54},
 	"rotated": false,
@@ -192,7 +192,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":68,"h":54},
 	"sourceSize": {"w":68,"h":54}
 },
-"chicken_fly25.png":
+"chicken_25.png":
 {
 	"frame": {"x":68,"y":193,"w":69,"h":52},
 	"rotated": false,
@@ -200,7 +200,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":52},
 	"sourceSize": {"w":69,"h":52}
 },
-"chicken_fly26.png":
+"chicken_26.png":
 {
 	"frame": {"x":137,"y":193,"w":65,"h":56},
 	"rotated": false,
@@ -208,7 +208,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":65,"h":56},
 	"sourceSize": {"w":65,"h":56}
 },
-"chicken_fly27.png":
+"chicken_27.png":
 {
 	"frame": {"x":202,"y":193,"w":62,"h":59},
 	"rotated": false,
@@ -216,7 +216,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":62,"h":59},
 	"sourceSize": {"w":62,"h":59}
 },
-"chicken_fly28.png":
+"chicken_28.png":
 {
 	"frame": {"x":264,"y":193,"w":59,"h":62},
 	"rotated": false,
@@ -224,7 +224,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":62},
 	"sourceSize": {"w":59,"h":62}
 },
-"chicken_fly29.png":
+"chicken_29.png":
 {
 	"frame": {"x":323,"y":193,"w":56,"h":64},
 	"rotated": false,
@@ -232,7 +232,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":64},
 	"sourceSize": {"w":56,"h":64}
 },
-"chicken_fly30.png":
+"chicken_30.png":
 {
 	"frame": {"x":379,"y":193,"w":58,"h":62},
 	"rotated": false,
@@ -240,7 +240,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":62},
 	"sourceSize": {"w":58,"h":62}
 },
-"chicken_fly31.png":
+"chicken_31.png":
 {
 	"frame": {"x":437,"y":193,"w":60,"h":62},
 	"rotated": false,
@@ -248,7 +248,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":62},
 	"sourceSize": {"w":60,"h":62}
 },
-"chicken_fly32.png":
+"chicken_32.png":
 {
 	"frame": {"x":0,"y":257,"w":62,"h":59},
 	"rotated": false,
@@ -256,7 +256,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":62,"h":59},
 	"sourceSize": {"w":62,"h":59}
 },
-"chicken_fly33.png":
+"chicken_33.png":
 {
 	"frame": {"x":62,"y":257,"w":63,"h":58},
 	"rotated": false,
@@ -264,7 +264,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":63,"h":58},
 	"sourceSize": {"w":63,"h":58}
 },
-"chicken_fly34.png":
+"chicken_34.png":
 {
 	"frame": {"x":125,"y":257,"w":64,"h":56},
 	"rotated": false,
@@ -272,7 +272,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":56},
 	"sourceSize": {"w":64,"h":56}
 },
-"chicken_fly35.png":
+"chicken_35.png":
 {
 	"frame": {"x":189,"y":257,"w":68,"h":54},
 	"rotated": false,
@@ -280,7 +280,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":68,"h":54},
 	"sourceSize": {"w":68,"h":54}
 },
-"chicken_fly36.png":
+"chicken_36.png":
 {
 	"frame": {"x":257,"y":257,"w":64,"h":61},
 	"rotated": false,
@@ -288,7 +288,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":61},
 	"sourceSize": {"w":64,"h":61}
 },
-"chicken_fly37.png":
+"chicken_37.png":
 {
 	"frame": {"x":321,"y":257,"w":60,"h":58},
 	"rotated": false,
@@ -296,7 +296,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":58},
 	"sourceSize": {"w":60,"h":58}
 },
-"chicken_fly38.png":
+"chicken_38.png":
 {
 	"frame": {"x":381,"y":257,"w":58,"h":56},
 	"rotated": false,
@@ -304,7 +304,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":56},
 	"sourceSize": {"w":58,"h":56}
 },
-"chicken_fly39.png":
+"chicken_39.png":
 {
 	"frame": {"x":439,"y":257,"w":58,"h":56},
 	"rotated": false,
@@ -312,7 +312,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":56},
 	"sourceSize": {"w":58,"h":56}
 },
-"chicken_fly40.png":
+"chicken_40.png":
 {
 	"frame": {"x":0,"y":318,"w":68,"h":61},
 	"rotated": false,
@@ -320,7 +320,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":68,"h":61},
 	"sourceSize": {"w":68,"h":61}
 },
-"chicken_fly41.png":
+"chicken_41.png":
 {
 	"frame": {"x":68,"y":318,"w":63,"h":61},
 	"rotated": false,
@@ -328,7 +328,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":63,"h":61},
 	"sourceSize": {"w":63,"h":61}
 },
-"chicken_fly42.png":
+"chicken_42.png":
 {
 	"frame": {"x":131,"y":318,"w":63,"h":61},
 	"rotated": false,
@@ -339,7 +339,7 @@
 "meta": {
 	"app": "Adobe Animate",
 	"version": "16.0.0.112",
-	"image": "chicken_fly.png",
+	"image": "chicken.png",
 	"format": "RGBA8888",
 	"size": {"w":512,"h":390},
 	"scale": "1"

@@ -1,5 +1,6 @@
 import PlatformPart from './PlatformPart';
 import PlatformTree from './PlatformTree';
+import Chicken from './Chicken';
 
 export default class PlatformGroup extends Phaser.Group {
 
@@ -16,9 +17,24 @@ export default class PlatformGroup extends Phaser.Group {
       this.platformTree = new PlatformTree(game, 0, 0, treeKey);
     }
 
+    if (random < .4) {
+      let platformWidthChicken = this.game.cache.getFrameByName(`platform`, platformKey).width - 18;
+      let position = this.game.rnd.integerInRange(18, platformWidthChicken);
+
+
+      this.chicken = new Chicken(game, position, -30);
+    }
+
     this.platformPart = new PlatformPart(game, 0, 0, platformKey);
 
     this.add(this.platformPart);
+    // if (this.platformTree) {
+    //   this.add(this.platformTree);
+    // }
+    if (this.chicken) {
+      this.add(this.chicken);
+    }
+
   }
 
   getRandomPlatform() {
@@ -49,15 +65,15 @@ export default class PlatformGroup extends Phaser.Group {
     let platformKey = this.getRandomPlatform();
     this.frame = platformKey;
 
-    // radom tree
+    // random tree
     let random = this.getRandomNumber();
     if (random < .8) {
 
       // platform width
-      let platformWidth = this.children[0]._frame.width - 90;
+      let platformWidthTree =  this.game.cache.getFrameByName(`platform`, platformKey).width - 90;
 
       // random between 0 and platform width
-      let position = this.game.rnd.integerInRange(0, platformWidth);
+      let position = this.game.rnd.integerInRange(0, platformWidthTree);
 
       // new tree
       let treeKey = this.getRandomTree();
