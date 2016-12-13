@@ -51,7 +51,7 @@ export default class Play extends Phaser.State {
   }
 
   updateScore() {
-    this.score += (this.time.now - this.startTime) / 1000;
+    this.score = (this.time.now - this.startTime) / 200;
     this.scoreText.setText(`score: ${Math.floor(this.score)}`);
   }
 
