@@ -16,9 +16,13 @@ $routes = array(
     'controller' => 'Game',
     'action' => 'index'
   ),
-  'score' => array(
-    'controller' => 'Score',
+  'stats' => array(
+    'controller' => 'Stat',
     'action' => 'index'
+  ),
+  'stats_push' => array(
+    'controller' => 'Stat',
+    'action' => 'push'
   )
 );
 
@@ -39,4 +43,4 @@ require_once WWW_ROOT . 'controller' . DS . $controllerName . ".php";
 $controllerObj = new $controllerName();
 $controllerObj->route = $route;
 $controllerObj->filter();
-$controllerObj->render();
+$controllerObj->render($_GET['page']);

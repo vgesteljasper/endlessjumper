@@ -5,13 +5,13 @@ const webpack = require(`webpack`);
 const publicPath = `/`;
 
 const config = {
-  entry: [
-    `./src/css/style.css`,
-    `./src/js/script.js`
-  ],
+  entry: {
+    game: [`./src/js/foxgame.js`, `./src/css/style.css`],
+    stats: [`./src/js/stats.js`, `./src/css/style.css`]
+  },
   output: {
     path: path.resolve(`./dist`),
-    filename: `js/script.js`,
+    filename: `js/[name].js`,
     publicPath: publicPath
   },
   devtool: `sourcemap`,

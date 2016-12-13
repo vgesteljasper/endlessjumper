@@ -215,7 +215,7 @@ export default class Play extends Phaser.State {
     data.append(`score`, `${this.score}`);
     data.append(`username`, `anonymous`);
 
-    fetch(`/index.php?page=score&t=${Date.now()}`, {
+    fetch(`/index.php?page=stats_push&t=${Date.now()}`, {
       headers: new Headers({
         Accept: `application/json`
       }),

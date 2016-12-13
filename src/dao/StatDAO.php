@@ -1,7 +1,7 @@
 <?php
 
 require_once( WWW_ROOT . 'dao' . DS . 'DAO.php');
-class ScoreDAO extends DAO {
+class StatDAO extends DAO {
 
   public function selectAll() {
     $sql = "SELECT * FROM `PHA_stats`";
