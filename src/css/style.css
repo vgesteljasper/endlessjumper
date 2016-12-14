@@ -3,9 +3,9 @@
 body {
   margin: 0;
   background-color: #222;
-  overflow: hidden;
   background-image: url('../assets/images/sky.png');
   background-repeat: repeat-x;
+  background-attachment: fixed;
   background-size: auto 100vh;
   font-family: DINRegular, sans-serif;
 }
@@ -65,4 +65,18 @@ table th {
   background-color: #7e851b;
   color: white;
   font-family: BigJohn, sans-serif;
+}
+
+.svg_js,
+.svg_php {
+  box-sizing: content-box;
+  border: 20px solid white;
+  border-left-width: 30px;
+  border-right-width: 30px;
+  margin: 0 0 5rem;
+  background-color: white;
+}
+
+.hidden {
+  display: none;
 }

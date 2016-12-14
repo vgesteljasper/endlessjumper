@@ -48,7 +48,6 @@ export default class Play extends Phaser.State {
     this.keyBindings();
     this.createScore();
     this.prefix = localhostRoot();
-    console.log(`current path prefix: ${this.prefix}`);
   }
 
   createScore() {
@@ -71,7 +70,7 @@ export default class Play extends Phaser.State {
   }
 
   createTitle() {
-    this.title = this.add.text(this.world.centerX, 230, `outfox the bear`, {
+    this.title = this.add.text(this.world.centerX, 230, `THE FOX GAME`, {
       font: `65px BigJohn`,
       fill: `white`
     });
@@ -165,7 +164,6 @@ export default class Play extends Phaser.State {
   }
 
   speedDelay() {
-    console.log(`speed delay`);
     this.speedDelayTimer = this.time.events.loop(10000, this.goFaster, this);
     this.speedDelayTimer.timer.start();
   }

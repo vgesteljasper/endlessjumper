@@ -36,7 +36,7 @@ export default class Menu extends Phaser.State {
   }
 
   createTitle() {
-    this.title = this.add.text(this.world.centerX, 230, `outfox the bear`, {
+    this.title = this.add.text(this.world.centerX, 230, `THE FOX GAME`, {
       font: `65px BigJohn`,
       fill: `white`
     });

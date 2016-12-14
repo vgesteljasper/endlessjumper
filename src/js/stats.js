@@ -1,10 +1,18 @@
+import chart from './lib/chart';
+
+const $info = document.getElementsByClassName(`info`)[0];
+const $svgJS = document.getElementsByClassName(`svg_js`)[0];
+const $svgPHP = document.getElementsByClassName(`svg_php`)[0];
+
 const init = () => {
 
+  loadFromPHP();
   loadItems();
-  setInterval(loadItems, 30000);
+  setInterval(loadItems, 60000);
 };
 
 const loadItems = () => {
+  $svgPHP.classList.add(`hidden`);
   fetch(`/index.php?page=stats&t=${Date.now()}`, {
     headers: new Headers({
       Accept: `application/json`
@@ -12,39 +20,27 @@ const loadItems = () => {
   })
   .then(response => response.json())
   .then(result => {
-    const $statsWrapper = document.getElementsByClassName(`stats_content`)[0];
     if (!result || result.length === 0) {
-      $statsWrapper.innerHTML = `<p>No Items In Database</p>`;
+      $info.innerHTML = `<p>No Items In Database</p>`;
       return;
     }
-    const date = new Date();
-    let resultHTML = `<p>This list automatically refreshed every 30 seconds.<br><span>last refresh: ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>created</th>
-          <th>duration</th>
-          <th>score</th>
-          <th>username</th>
-        </tr>
-      </thead>
-      <tbody>`;
-    console.log(result);
-    result.forEach(item => {
-      const duration = item.duration / 60000;
-      resultHTML += `
-      <tr>
-        <td>${item.created}</td>
-        <td>${duration.toFixed(2)} min.</td>
-        <td>${item.score}</td>
-        <td>${item.username}</td>
-      </tr>`;
-    });
-    resultHTML += `
-    </tbody>
-  </table>`;
-    $statsWrapper.innerHTML = resultHTML;
+    $info.innerHTML = `<p>This chart updates automatically every minute.</p>`;
+    $svgJS.innerHTML = ``;
+    chart(result, $svgJS, `GAME DURATION IN MINUTES`);
+  })
+  .catch(() => {
+    console.log(`Fetch error. Showing static chart instead of self updating one.`);
+    $svgPHP.classList.remove(`hidden`);
   });
+};
+
+const loadFromPHP = data => {
+  $svgPHP.classList.remove(`hidden`);
+  data = document.getElementsByClassName(`phpdata`)[0].innerText;
+  if (data !== ``) {
+    data = JSON.parse(data);
+    chart(data, $svgPHP, `GAME DURATION IN MINUTES`);
+  }
 };
 
 init();

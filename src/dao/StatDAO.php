@@ -4,14 +4,14 @@ require_once( WWW_ROOT . 'dao' . DS . 'DAO.php');
 class StatDAO extends DAO {
 
   public function selectAll() {
-    $sql = "SELECT * FROM `PHA_stats`";
+    $sql = "SELECT `created`, `duration` FROM `PHA_stats`";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function selectById($id) {
-    $sql = "SELECT * FROM `PHA_stats` WHERE `id` = :id";
+    $sql = "SELECT `created`, `duration` FROM `PHA_stats` WHERE `id` = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     $stmt->execute();
