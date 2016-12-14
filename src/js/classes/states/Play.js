@@ -209,9 +209,9 @@ export default class Play extends Phaser.State {
   }
 
   pushDataToServer() {
-    //uncomment who is currently programming and comment who isn't
-    const remco = `/2DEV2/Collaborative%20Development/groepsopdracht/src/`;
-    //const jasper = `/`;
+    //uncomment the current programmer's url to his local server, and comment the other one
+    const currentUserUrl = `/2DEV2/Collaborative%20Development/groepsopdracht/src/`;
+    //const currentUserUrl = `/`;
 
     const data = new FormData();
     data.append(`action`, `add-stat`);
@@ -219,8 +219,7 @@ export default class Play extends Phaser.State {
     data.append(`score`, `${this.score}`);
     data.append(`username`, `anonymous`);
 
-    //change first name to whoever is programming
-    fetch(`${remco}index.php?page=stats_push&t=${Date.now()}`, {
+    fetch(`${currentUserUrl}index.php?page=stats_push&t=${Date.now()}`, {
       headers: new Headers({
         Accept: `application/json`
       }),
