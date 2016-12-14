@@ -19,6 +19,8 @@
             s.parentNode.insertBefore(wf, s);
          })(document);
         </script>
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+        <link rel="shortcut icon" href="assets/favicons/favicon.ico">
         <?php echo $css; ?>
     </head>
     <body>

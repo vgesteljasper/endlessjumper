@@ -3,13 +3,12 @@ import Platform from '../objects/PlatformGroup';
 import Cave from '../objects/Cave';
 import Fox from '../objects/Fox';
 import ScoreBoard from '../objects/Scoreboard';
+import localhostRoot from '../../lib/localhostRoot';
 
 export default class Play extends Phaser.State {
 
   create() {
 
-    const button = this.cache.getImage(`button`);
-    console.log(button.width);
     this.physics.startSystem(Phaser.Physics.ARCADE);
     this.physics.arcade.gravity.y = 700;
 
@@ -40,6 +39,8 @@ export default class Play extends Phaser.State {
     // extras
     this.keyBindings();
     this.createScore();
+    this.prefix = localhostRoot();
+    console.log(`current path prefix: ${this.prefix}`);
   }
 
   createScore() {
@@ -209,9 +210,9 @@ export default class Play extends Phaser.State {
   }
 
   pushDataToServer() {
-    //uncomment the current programmer's url to his local server, and comment the other one
-    const currentUserUrl = `/2DEV2/Collaborative%20Development/groepsopdracht/src/`;
-    //const currentUserUrl = `/`;
+
+    // change parth in src/js/lib/localhostRoot.js
+    // this file is NOT tracket by git for usability reasons
 
     const data = new FormData();
     data.append(`action`, `add-stat`);
@@ -219,7 +220,7 @@ export default class Play extends Phaser.State {
     data.append(`score`, `${this.score}`);
     data.append(`username`, `anonymous`);
 
-    fetch(`${currentUserUrl}index.php?page=stats_push&t=${Date.now()}`, {
+    fetch(`${this.prefix}index.php?page=stats_push&t=${Date.now()}`, {
       headers: new Headers({
         Accept: `application/json`
       }),
