@@ -62,7 +62,7 @@ export default class PlatformGroup extends Phaser.Group {
     const random = this.getRandomNumber();
 
     // chicken
-    if (random < .5) {
+    if (random < .1) {
       const xPos = this.game.rnd.integerInRange(20, platformWidth - 20);
       this.chicken.revive(xPos, - 40);
     }
@@ -93,13 +93,12 @@ export default class PlatformGroup extends Phaser.Group {
       const direction = this.chicken.getDirection();
       if (direction) this.chicken.x += chickenSpeed;
       else this.chicken.x -= chickenSpeed;
-    }
 
-    // collide chicken with platform
-    this.game = Phaser.GAMES[0];
-    if (this.chicken.exists) {
+      // collide chicken with platform
+      this.game = Phaser.GAMES[0];
       this.game.physics.arcade.collide(this.chicken, this.platform, null, null, this);
     }
+
   }
 
 }

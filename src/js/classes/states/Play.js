@@ -19,6 +19,7 @@ export default class Play extends Phaser.State {
     this.startTime = this.time.now;
     this.scoreActive = false;
     this.score = 0;
+    this.chickenScore = 0;
     this.currentPlatform;
     this.currentChicken;
     this.chickenDead;
@@ -41,6 +42,7 @@ export default class Play extends Phaser.State {
     // timers
     this.platformDelay();
     this.caveDelay();
+    this.speedDelay();
 
     // extras
     this.keyBindings();
@@ -58,8 +60,8 @@ export default class Play extends Phaser.State {
   }
 
   updateScore() {
-    this.score = (this.time.now - this.startTime) / 400;
-    this.scoreText.setText(`${Math.floor(this.score)}m`);
+    this.score = this.chickenScore + ((this.time.now - this.startTime) / 100);
+    this.scoreText.setText(`${Math.floor(this.score)}`);
   }
 
   createBackground() {
@@ -92,7 +94,52 @@ export default class Play extends Phaser.State {
     const yPos = this.game.rnd.integerInRange(this.maxPlatformHeight, this.minPlatformHeight);
     const platformWidth = platform.reset(this.world.bounds.width, yPos, this);
 
-    this.platformDelay(platformWidth * 3.7);
+    let times;
+
+    switch (this.speed) {
+    case 10:
+      times = 3.7;
+      break;
+    case 11:
+      times = 3.3;
+      break;
+    case 12:
+      times = 3.3;
+      break;
+    case 13:
+      times = 3.2;
+      break;
+    case 14:
+      times = 3;
+      break;
+    case 15:
+      times = 2.8;
+      break;
+    case 16:
+      times = 2.6;
+      break;
+    case 17:
+      times = 2.5;
+      break;
+    case 18:
+      times = 2.5;
+      break;
+    case 19:
+      times = 2.4;
+      break;
+    case 20:
+      times = 2.4;
+      break;
+    case 21:
+      times = 2.5;
+      break;
+    case 22:
+      times = 2.7;
+    }
+
+    const delay = platformWidth * times;
+
+    this.platformDelay(delay);
   }
 
   platformDelay(delay = 100) {
@@ -108,6 +155,19 @@ export default class Play extends Phaser.State {
   addFox() {
     this.fox = new Fox(this.game, 260, 100);
     this.add.existing(this.fox);
+  }
+
+  goFaster() {
+    if (this.speed < 22) {
+      // eslint gives error on `this.speed++`
+      this.speed = this.speed + 1;
+    }
+  }
+
+  speedDelay() {
+    console.log(`speed delay`);
+    this.speedDelayTimer = this.time.events.loop(10000, this.goFaster, this);
+    this.speedDelayTimer.timer.start();
   }
 
   gameOver() {
@@ -171,7 +231,7 @@ export default class Play extends Phaser.State {
 
   killChicken() {
     this.currentChicken.kill();
-    console.log(`add 100 xp`);
+    this.chickenScore += 1000;
   }
 
   update() {
