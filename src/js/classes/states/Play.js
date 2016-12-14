@@ -19,6 +19,12 @@ export default class Play extends Phaser.State {
     this.startTime = this.time.now;
     this.scoreActive = false;
     this.score = 0;
+    this.currentPlatform;
+    this.currentChicken;
+    this.chickenDead;
+
+    this.maxPlatformHeight = 210;
+    this.minPlatformHeight = 270;
 
     // add items
     this.createBackground();
@@ -83,19 +89,15 @@ export default class Play extends Phaser.State {
       platform = new Platform(this.game);
       this.platforms.add(platform);
     }
+    const yPos = this.game.rnd.integerInRange(this.maxPlatformHeight, this.minPlatformHeight);
+    const platformWidth = platform.reset(this.world.bounds.width, yPos, this);
 
-    const platformWidth = platform.children[0]._frame.width;
-
-    const yPos = this.game.rnd.integerInRange(210, 270);
-    platform.reset(this.world.bounds.width, yPos, this);
-
-    this.platformDelay(platformWidth * 3.8);
+    this.platformDelay(platformWidth * 3.7);
   }
 
   platformDelay(delay = 100) {
     // destroy old timer
     if (this.platformDelayTimer) {
-      // this.platformDelayTimer.timer.destroy();
       this.time.events.remove(this.platformDelayTimer);
     }
     // new timer
@@ -132,7 +134,6 @@ export default class Play extends Phaser.State {
 
   caveDelay() {
     if (this.caveDelayTimer) {
-      // this.caveDelayTimer.timer.destroy();
       this.time.events.remove(this.caveDelayTimer);
     }
 
@@ -161,15 +162,30 @@ export default class Play extends Phaser.State {
     }
   }
 
-  update() {
+  checkChickenCollide() {
+    this.currentChicken = this.currentPlatform.chicken;
+    if (this.currentChicken.exists) {
+      this.physics.arcade.collide(this.fox, this.currentChicken, this.killChicken, null, this);
+    }
+  }
 
+  killChicken() {
+    this.currentChicken.kill();
+    console.log(`add 100 xp`);
+  }
+
+  update() {
     if (this.scoreActive) {
       this.updateScore();
     }
 
-    // collide fox with platforms
     this.platforms.forEach(platform => {
-      this.physics.arcade.collide(this.fox, platform, null, null, this);
+      if (platform.exists) {
+
+        // collide fox with platforms
+        this.currentPlatform = platform;
+        this.physics.arcade.collide(this.fox, platform, this.checkChickenCollide, null, this);
+      }
     });
 
     // kill fox if it fell of platform
@@ -202,11 +218,6 @@ export default class Play extends Phaser.State {
     }
 
     this.checkKeyboard();
-  }
-
-  render() {
-    // this.game.debug.text(`time: ${this.time.now - this.startTime}`, 32, 32);
-    // this.game.debug.text(`cave: ${this.caveDelayTimer.tick}`, 32, 64);
   }
 
   pushDataToServer() {

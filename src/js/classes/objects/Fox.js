@@ -15,7 +15,7 @@ export default class Fox extends Phaser.Sprite {
     this.body.gravity.y = 4000;
     this.body.collideWorldBounds = true;
 
-    this.body.setSize(50, 20, 30, 0);
+    this.body.setSize(50, 42, 30, 0);
   }
 
   jump() {
