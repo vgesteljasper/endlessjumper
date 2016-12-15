@@ -42,6 +42,7 @@
     "webpack-dev-server": "beta"
   },
   "dependencies": {
-    "d3": "^4.4.0"
+    "d3": "^4.4.0",
+    "date.format": "^1.1.2"
   }
 }

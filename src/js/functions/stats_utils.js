@@ -1,125 +1,67 @@
 const filters = (data, startDate, endDate) => {
 
-  // NONE
-  if (data === undefined && startDate === undefined && endDate === undefined) {
-    return [];
-  }
+  if (data === undefined && startDate === undefined && endDate === undefined) return [];
+  if (data !== undefined && startDate === undefined && endDate === undefined) return data;
+  const returnData = [];
 
-  // DATA
-  if (data !== undefined && startDate === undefined && endDate === undefined) {
-    return data;
-  }
-
-  // DATA + STARTDATE
+  // DATA + START
   if (data !== undefined && startDate !== undefined && endDate === undefined) {
-    const returnData = [];
-    const paramDate = parseInt(startDate.replace(/-|:|\s/g, ``));
-
-    // DATE
-    if (!isDateTime(startDate)) {
-      filter()
-    }
-    // DATE TIME
-    else {
-      data.forEach(row => {
-        const date = parseInt(row.created.replace(/-|:|\s/g, ``));
-        if (date >= paramDate) {
-          returnData.push(row);
-        }
-      });
-    }
-
+    const startParam = stringDateToInt(startDate);
+    if (!isDateTime(startDate)) filter(data, startParam, false, returnData, false);
+    else filter(data, startParam, false, returnData, true);
     return returnData;
   }
 
-  // DATA + ENDDATE
+  // DATA + END
   if (data !== undefined && startDate === false && endDate !== undefined) {
-    const returnData = [];
-    const paramDate = parseInt(endDate.replace(/-|:|\s/g, ``));
-
-    // DATE
-    if (!isDateTime(endDate)) {
-      data.forEach(row => {
-        let date = row.created;
-        date = date.substring(0, date.indexOf(` `));
-        date = parseInt(date.replace(/-/g, ``));
-        if (date < paramDate) {
-          returnData.push(row);
-        }
-      });
-    }
-    // DATE TIME
-    else {
-      data.forEach(row => {
-        const date = parseInt(row.created.replace(/-|:|\s/g, ``));
-        if (date < paramDate) {
-          returnData.push(row);
-        }
-      });
-    }
-
+    const endParam = stringDateToInt(endDate);
+    if (!isDateTime(endDate)) filter(data, false, endParam, returnData, false);
+    else filter(data, false, endParam, returnData, true);
     return returnData;
   }
 
-  // DATA + STARTTIME + ENDTIME
+  // DATA + START + END
   else {
-    const returnData = [];
-    const startDateParam = parseInt(startDate.replace(/-|:|\s/g, ``));
-    const endDateParam = parseInt(endDate.replace(/-|:|\s/g, ``));
-
-    // DATE
-    if (!isDateTime(startDate) && !isDateTime(endDate)) {
+    if (typeof startDate.getMonth === `function` && typeof endDate.getMonth === `function`) {
       data.forEach(row => {
-        let date = row.created;
-        date = date.substring(0, date.indexOf(` `));
-        date = parseInt(date.replace(/-/g, ``));
-        if (date >= startDateParam && date < endDateParam) {
-          returnData.push(row);
-        }
+        const date = new Date(row.created);
+        if (date >= startDate && date < endDate) returnData.push(row);
       });
+    } else {
+      const startParam = stringDateToInt(startDate);
+      const endParam = stringDateToInt(endDate);
+      if (!isDateTime(startDate) && !isDateTime(endDate)) filter(data, startParam, endParam, returnData, false);
+      else filter(data, startParam, endParam, returnData, true);
     }
-    // DATE TIME
-    else {
-      data.forEach(row => {
-        const date = parseInt(row.created.replace(/-|:|\s/g, ``));
-        if (date >= startDateParam && date < endDateParam) {
-          returnData.push(row);
-        }
-      });
-    }
-
     return returnData;
   }
 
 };
 
 const isDateTime = date => {
-  if (date.indexOf(` `) === - 1) {
-    return false;
-  }
+  if (date.indexOf(` `) === - 1) return false;
   return true;
 };
 
-const filter = (data, startParam, endParam, returnData) => {
-  // FILTER BETWEEN DATES
-  if (startParam !== false && endParam !== false) {
+const stringDateToInt = date => {
+  return parseInt(date.replace(/-|:|\s/g, ``));
+};
 
-  }
-  // FILTER AFTER DATE
-  else if (startParam !== false) {
-    data.forEach(row => {
-      let date = row.created;
-      date = date.substring(0, date.indexOf(` `));
-      date = parseInt(date.replace(/-/g, ``));
-      if (date >= startParam) {
-        returnData.push(row);
+const filter = (data, startParam, endParam, returnData, DateTime) => {
+  data.forEach(row => {
+    let date;
+    if (DateTime) date = parseInt(row.created.replace(/-|:|\s/g, ``));
+    else date = parseInt(row.created.substring(0, row.created.indexOf(` `)).replace(/-/g, ``));
+    if (startParam !== false && endParam !== false) {
+      if (date >= startParam && date < endParam) returnData.push(row);
+    } else {
+      if (startParam !== false) {
+        if (date >= startParam) returnData.push(row);
+      } else {
+        if (date < endParam) returnData.push(row);
       }
-    });
-  }
-  // FILTER BEFORE DATE
-  else {
-
-  }
+    }
+  });
 };
 
 exports.getFilteredDataBetween = filters;
