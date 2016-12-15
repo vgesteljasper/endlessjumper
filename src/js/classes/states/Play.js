@@ -303,4 +303,8 @@ export default class Play extends Phaser.State {
     });
   }
 
+  render() {
+    this.game.debug.body(this.fox);
+  }
+
 }

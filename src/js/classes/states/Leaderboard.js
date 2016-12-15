@@ -34,18 +34,37 @@ export default class Leaderboard extends Phaser.State {
   }
 
   showBoard(data) {
+    const xPos = 350;
     let yPos = 50;
+    let i = 1;
+
+    this.crown = this.add.tileSprite(xPos - 35, yPos + 7, 380, 380, `crown`);
+    this.crown.anchor.setTo(.5);
+    this.crown.scale.setTo(.1);
+
     data.forEach(row => {
-      this.scoreText = this.add.text(300, yPos, `${row.username}`, {
+      this.scoreText = this.add.text(xPos, yPos, `${i}. ${row.username}`, {
         font: `14px BigJohn`,
         fill: `black`
       });
-      this.scoreText = this.add.text(520, yPos, `${row.highscore}`, {
+      this.scoreText = this.add.text(xPos + 220, yPos, `${row.highscore}`, {
         font: `14px BigJohn`,
         fill: `black`
       });
-      yPos += 30;
+      if (i < 10) {
+        this.addLine(xPos, yPos + 25, 265);
+      }
+      i ++;
+      yPos += 35;
     });
+  }
+
+  addLine(x, y, width) {
+    this.line = this.game.add.graphics(x, y);
+    this.line.lineStyle(3, 0x000000, 1);
+    this.line.lineTo(width, 0);
+
+    return this.line;
   }
 
   fallBack() {
