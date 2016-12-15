@@ -35,8 +35,8 @@ export default (data, parentSVG, title) => {
     .range([0, (height - (height / 20))]);
 
   const svg = d3.select(parentSVG)
-    .attr(`width`, `${width + 140}px`)
-    .attr(`height`, `${height + 120}px`);
+    .attr(`width`, width + 140)
+    .attr(`height`, height + 120);
 
   const grid = svg.append(`g`)
     .attr(`class`, `grid`)
@@ -58,15 +58,15 @@ export default (data, parentSVG, title) => {
         const yPos = height - ((height / 20) * i);
         return `translate(100, ${yPos})`;
       })
-      .attr(`width`, `${width + 40}`)
-      .attr(`height`, `1`)
+      .attr(`width`, width + 40)
+      .attr(`height`, 1)
       .attr(`fill`, `#f2f2f2`);
     grid.append(`text`)
-      .attr(`x`, `55`)
+      .attr(`x`, 55)
       .attr(`y`, height - ((height / 20) * i) + 4)
       .text(() => {
         const milliseconds = Math.round(((max * 10000) / 19) * i);
-        return `${timeParse(milliseconds)}`;
+        return timeParse(milliseconds);
       });
   }
 
@@ -76,7 +76,7 @@ export default (data, parentSVG, title) => {
     .attr(`height`, data => {
       let duration = data.duration / 10000;
       duration = x(duration);
-      return `${duration}px`;
+      return duration;
     })
     .attr(`width`, () => {
       let bWidth = (width / count) - 2;
@@ -86,7 +86,7 @@ export default (data, parentSVG, title) => {
       if (bWidth < 1) {
         bWidth = 1;
       }
-      return `${bWidth}px`;
+      return bWidth;
     })
     .attr(`transform`, (data, index) => {
       let duration = data.duration / 10000;
@@ -109,7 +109,7 @@ export default (data, parentSVG, title) => {
     .attr(`x`, `50%`)
     .attr(`y`, `0`)
     .attr(`style`, `font-size: 2rem; transform: translate(-50%, 0)`)
-    .text(`${title}`);
+    .text(title);
 
   const infoLeft = info.append(`g`)
     .attr(`class`, `info_name`);
@@ -118,23 +118,23 @@ export default (data, parentSVG, title) => {
     .attr(`class`, `info_value`);
 
   infoLeft.append(`text`)
-    .attr(`x`, `${width - 100}`)
-    .attr(`y`, `${height + 40}`)
+    .attr(`x`, width - 100)
+    .attr(`y`, height + 40)
     .text(`TIMES PLAYED:`);
 
   infoRight.append(`text`)
-    .attr(`x`, `${width + 80}`)
-    .attr(`y`, `${height + 40}`)
-    .text(`${count}`);
+    .attr(`x`, width + 80)
+    .attr(`y`, height + 40)
+    .text(count);
 
   infoLeft.append(`text`)
-    .attr(`x`, `${width - 100}`)
-    .attr(`y`, `${height + 60}`)
+    .attr(`x`, width - 100)
+    .attr(`y`, height + 60)
     .text(`AVERAGE DURATION:`);
 
   infoRight.append(`text`)
-    .attr(`x`, `${width + 80}`)
-    .attr(`y`, `${height + 60}`)
-    .text(`${timeParse(avg)}`);
+    .attr(`x`, width + 80)
+    .attr(`y`, height + 60)
+    .text(timeParse(avg));
 
 };

@@ -1,0 +1,48 @@
+@import 'general';
+
+.stats_wrapper {
+  width: 100rem;
+  margin: 0 auto;
+}
+
+p {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 4rem;
+  font-family: BigJohn;
+  margin: 6rem 0 2rem;
+}
+
+.svg_js,
+.svg_php {
+  box-sizing: content-box;
+  border: 20px solid white;
+  border-left-width: 30px;
+  border-right-width: 30px;
+  margin: 0 0 5rem;
+  background-color: white;
+}
+
+.controlls {
+  margin: 2rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  padding: 2rem;
+  background-color: white;
+  margin: 0 0 1rem;
+
+  & span {
+    padding: 1rem;
+    font-weight: 700;
+  }
+}
+
+input[type='radio'] {
+  margin: 0 2rem 0 0;
+}

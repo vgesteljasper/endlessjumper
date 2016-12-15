@@ -6,8 +6,8 @@ const publicPath = `/`;
 
 const config = {
   entry: {
-    game: [`./src/js/foxgame.js`, `./src/css/style.css`],
-    stats: [`./src/js/stats.js`, `./src/css/style.css`]
+    game: [`./src/js/foxgame.js`, `./src/css/game.css`],
+    stats: [`./src/js/stats.js`, `./src/css/stats.css`]
   },
   output: {
     path: path.resolve(`./dist`),

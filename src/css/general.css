@@ -1,0 +1,14 @@
+@import 'reset';
+
+body {
+  margin: 0;
+  background-image: url('../assets/images/sky.png');
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+  background-size: auto 100vh;
+  font-family: DINRegular, sans-serif;
+}
+
+.hidden {
+  display: none;
+}

@@ -278,11 +278,13 @@ export default class Play extends Phaser.State {
     // change path in src/js/lib/localhostRoot.js
     // this file is NOT tracked by git for usability reasons
 
+    const username = sessionStorage.getItem(`username`);
+
     const data = new FormData();
     data.append(`action`, `add-stat`);
-    data.append(`duration`, `${this.time.now - this.startTime}`);
-    data.append(`score`, `${this.score}`);
-    data.append(`username`, `anonymous`);
+    data.append(`duration`, this.time.now - this.startTime);
+    data.append(`score`, this.score);
+    data.append(`username`, username);
 
     fetch(`${this.prefix}index.php?page=stats_push&t=${Date.now()}`, {
       headers: new Headers({
