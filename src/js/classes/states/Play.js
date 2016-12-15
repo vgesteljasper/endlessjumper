@@ -42,7 +42,6 @@ export default class Play extends Phaser.State {
     // timers
     this.platformDelay();
     this.caveDelay();
-    this.speedDelay();
 
     // extras
     this.keyBindings();
@@ -163,11 +162,6 @@ export default class Play extends Phaser.State {
     }
   }
 
-  speedDelay() {
-    this.speedDelayTimer = this.time.events.loop(10000, this.goFaster, this);
-    this.speedDelayTimer.timer.start();
-  }
-
   gameOver() {
     this.isGameOver = true;
 
@@ -230,6 +224,7 @@ export default class Play extends Phaser.State {
   killChicken() {
     this.currentChicken.kill();
     this.chickenScore += 1000;
+    this.goFaster();
   }
 
   update() {
@@ -285,7 +280,7 @@ export default class Play extends Phaser.State {
 
     const data = new FormData();
     data.append(`action`, `add-stat`);
-    data.append(`duration`, `${this.time.now}`);
+    data.append(`duration`, `${this.time.now - this.startTime}`);
     data.append(`score`, `${this.score}`);
     data.append(`username`, `anonymous`);
 

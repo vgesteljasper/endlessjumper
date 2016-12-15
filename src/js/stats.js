@@ -24,9 +24,10 @@ const loadItems = () => {
       $info.innerHTML = `<p>No Items In Database</p>`;
       return;
     }
+    $svgJS.classList.remove(`hidden`);
     $info.innerHTML = `<p>This chart updates automatically every minute.</p>`;
     $svgJS.innerHTML = ``;
-    chart(result, $svgJS, `GAME DURATION IN MINUTES`);
+    chart(result, $svgJS, `ALL TIME`);
   })
   .catch(() => {
     console.log(`Fetch error. Showing static chart instead of self updating one.`);
@@ -36,10 +37,11 @@ const loadItems = () => {
 
 const loadFromPHP = data => {
   $svgPHP.classList.remove(`hidden`);
+  $svgJS.classList.add(`hidden`);
   data = document.getElementsByClassName(`phpdata`)[0].innerText;
   if (data !== ``) {
     data = JSON.parse(data);
-    chart(data, $svgPHP, `GAME DURATION IN MINUTES`);
+    chart(data, $svgPHP, `ALL TIME`);
   }
 };
 

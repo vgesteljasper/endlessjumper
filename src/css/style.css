@@ -19,19 +19,20 @@ body {
 }
 
 .stats_wrapper {
-  width: 96rem;
+  width: 100rem;
   margin: 5rem auto 0;
 
   & p {
-    margin: 0 0 2rem;
-    font-size: 1.2rem;
+    margin: 0 0 1rem;
+    font-size: 2rem;
   }
 
   & h2 {
-    font-size: 2rem;
+    font-size: 4rem;
     font-family: BigJohn;
     margin: 0 0 2rem;
   }
+
 }
 
 table {
@@ -79,4 +80,25 @@ table th {
 
 .hidden {
   display: none;
+}
+
+.controlls {
+  margin: 2rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  padding: 2rem;
+  background-color: white;
+  margin: 0 0 1rem;
+
+  & span {
+    padding: 1rem;
+    font-weight: 700;
+  }
+}
+
+input[type='radio'] {
+  margin: 0 2rem 0 0;
 }
