@@ -10,6 +10,13 @@ class StatDAO extends DAO {
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  public function getTopTen() {
+    $sql = "SELECT `username`, max(`score`) as `highscore` FROM `PHA_stats` GROUP BY `username` order by `highscore` desc LIMIT 10";
+    $stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
   public function selectById($id) {
     $sql = "SELECT `created`, `duration` FROM `PHA_stats` WHERE `id` = :id";
     $stmt = $this->pdo->prepare($sql);

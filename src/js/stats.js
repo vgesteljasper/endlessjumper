@@ -1,8 +1,10 @@
 import chart from './lib/chart';
+import localhostRoot from './lib/localhostRoot';
 
 const $info = document.getElementsByClassName(`info`)[0];
 const $svgJS = document.getElementsByClassName(`svg_js`)[0];
 const $svgPHP = document.getElementsByClassName(`svg_php`)[0];
+const prefix = localhostRoot();
 
 const init = () => {
 
@@ -13,7 +15,7 @@ const init = () => {
 
 const loadItems = () => {
   $svgPHP.classList.add(`hidden`);
-  fetch(`/index.php?page=stats&t=${Date.now()}`, {
+  fetch(`${prefix}index.php?page=stats&t=${Date.now()}`, {
     headers: new Headers({
       Accept: `application/json`
     })

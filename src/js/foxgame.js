@@ -5,6 +5,7 @@ const $form = document.getElementById(`form`);
 const $formInput = document.getElementById(`form_input`);
 
 const init = () => {
+
   if (isWebfontLoaded()) {
     startGame();
     return;

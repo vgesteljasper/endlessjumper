@@ -21,6 +21,17 @@ class StatController extends Controller {
     $this->set('items', $items);
 	}
 
+	public function get() {
+		if (isset($_GET['leaderboard'])) {
+			$items = $this->statDAO->getTopTen();
+			if($this->isAjax) {
+	      header('Content-Type: application/json');
+	      echo json_encode($items);
+	      exit();
+	    }
+		}
+	}
+
 	public function push() {
 		if(!empty($_POST['action']) && $_POST['action'] == 'add-stat') {
       $data = array_merge($_POST, array('created' => date('Y-m-d H:i:s')));

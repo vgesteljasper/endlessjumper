@@ -23,6 +23,22 @@ export default class Scoreboard extends Phaser.Group {
 
     buttonGroup.x = 50;
     buttonGroup.y = 160;
+
+    this.createIconLeader();
+  }
+
+  createIconLeader() {
+    const leaderboardBtn = this.game.add.button(20, 15, `icons`, this.leaderboardClicked, this, `leaderboard`, `leaderboard`, `leaderboard`);
+    leaderboardBtn.scale.setTo(0.1, 0.1);
+
+    this.text = this.game.add.text(70, 26, `LEADERBOARD`, {
+      font: `15px DINMedium`,
+      fill: `white`
+    });
+  }
+
+  leaderboardClicked() {
+    this.game.state.start(`Leaderboard`);
   }
 
   restartGame() {

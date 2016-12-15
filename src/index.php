@@ -23,6 +23,10 @@ $routes = array(
   'stats_push' => array(
     'controller' => 'Stat',
     'action' => 'push'
+  ),
+  'stats_get' => array(
+    'controller' => 'Stat',
+    'action' => 'get'
   )
 );
 

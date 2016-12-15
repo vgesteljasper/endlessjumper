@@ -1,5 +1,81 @@
-export default class Leaderboard extends Phaser.State {
-  create() {
+import localhostRoot from '../../lib/localhostRoot';
 
+export default class Leaderboard extends Phaser.State {
+
+  create() {
+    this.prefix = localhostRoot();
+
+    this.createBackground();
+    this.addBackButton();
+    this.fetchLeaderboard();
   }
+
+  createBackground() {
+    this.sky = this.add.tileSprite(0, 0, this.game.width, 304, `sky`);
+    this.sea = this.add.tileSprite(0, 304, this.game.width, 500, `sea`);
+    this.clouds = this.add.tileSprite(0, 80, this.game.width, 236, `clouds`);
+  }
+
+  addBackButton() {
+    const buttonGroup = this.game.add.group();
+
+    const restartButton = this.game.add.button(0, 0, `button`, this.restartGame, this, `button_hover`);
+    const restartButtonText = this.game.add.text(90, 22, `back`, {
+      font: `20px BigJohn`,
+      fill: `white`
+    });
+    restartButtonText.anchor.setTo(.5, .5);
+
+    buttonGroup.add(restartButton);
+    buttonGroup.add(restartButtonText);
+
+    buttonGroup.x = 50;
+    buttonGroup.y = 50;
+  }
+
+  showBoard(data) {
+    let yPos = 50;
+    data.forEach(row => {
+      this.scoreText = this.add.text(300, yPos, `${row.username}`, {
+        font: `14px BigJohn`,
+        fill: `black`
+      });
+      this.scoreText = this.add.text(520, yPos, `${row.highscore}`, {
+        font: `14px BigJohn`,
+        fill: `black`
+      });
+      yPos += 30;
+    });
+  }
+
+  fallBack() {
+    this.scoreText = this.add.text(300, 50, `nothing to show here`, {
+      font: `14px BigJohn`,
+      fill: `black`
+    });
+  }
+
+  fetchLeaderboard() {
+    fetch(`${this.prefix}index.php?page=stats_get&leaderboard&t=${Date.now()}`, {
+      headers: new Headers({
+        Accept: `application/json`
+      })
+    })
+    .then(response => response.json())
+    .then(result => {
+      if (!result || result.length === 0) {
+        this.fallBack();
+        return;
+      }
+      this.showBoard(result);
+    })
+    .catch(() => {
+      this.fallBack();
+    });
+  }
+
+  restartGame() {
+    this.game.state.start(`Menu`);
+  }
+
 }
