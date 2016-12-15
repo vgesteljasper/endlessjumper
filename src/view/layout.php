@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="author" content="Lennert Vloeberghs, Seppe Clijsters, Remco Van Gestel, Jasper Van Gestel">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Outfox The Bear</title>
+        <title>The Fox Game</title>
         <script>
          WebFontConfig = {
            custom: {

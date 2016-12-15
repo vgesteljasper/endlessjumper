@@ -2,7 +2,7 @@ import PlatformStart from '../objects/PlatformGroupStart';
 import Platform from '../objects/PlatformGroup';
 import Cave from '../objects/Cave';
 import Fox from '../objects/Fox';
-import ScoreBoard from '../objects/Scoreboard';
+import Scoreboard from '../objects/Scoreboard';
 import localhostRoot from '../../lib/localhostRoot';
 
 export default class Play extends Phaser.State {
@@ -159,7 +159,7 @@ export default class Play extends Phaser.State {
   goFaster() {
     if (this.speed < 22) {
       // eslint gives error on `this.speed++`
-      this.speed = this.speed + 1;
+      this.speed += 1;
     }
   }
 
@@ -174,7 +174,7 @@ export default class Play extends Phaser.State {
     this.pushDataToServer();
 
     this.fox.kill();
-    this.scoreboard = new ScoreBoard(this);
+    this.scoreboard = new Scoreboard(this);
     this.scoreboard.show(this.score);
     this.add.existing(this.scoreboard);
   }
@@ -246,7 +246,7 @@ export default class Play extends Phaser.State {
       }
     });
 
-    // kill fox if it fell of platform
+    // kill fox if it fell off platform
     if (this.fox.y > 2000 && !this.isGameOver) {
       this.gameOver();
     } else if (this.fox.y > 300) {
@@ -280,8 +280,8 @@ export default class Play extends Phaser.State {
 
   pushDataToServer() {
 
-    // change parth in src/js/lib/localhostRoot.js
-    // this file is NOT tracket by git for usability reasons
+    // change path in src/js/lib/localhostRoot.js
+    // this file is NOT tracked by git for usability reasons
 
     const data = new FormData();
     data.append(`action`, `add-stat`);

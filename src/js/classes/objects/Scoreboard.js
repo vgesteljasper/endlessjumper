@@ -1,4 +1,4 @@
-export default class ScoreBoard extends Phaser.Group {
+export default class Scoreboard extends Phaser.Group {
   constructor(game) {
     super(game);
 
