@@ -5,6 +5,10 @@ import Fox from '../objects/Fox';
 import Scoreboard from '../objects/Scoreboard';
 import localhostRoot from '../../lib/localhostRoot';
 
+import es6Promise from 'es6-promise';
+import fetch from 'isomorphic-fetch';
+es6Promise.polyfill();
+
 export default class Play extends Phaser.State {
 
   create() {
