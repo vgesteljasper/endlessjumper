@@ -28,6 +28,7 @@
     "file-loader": "^0.9.0",
     "image-webpack-loader": "^3.0.0",
     "isomorphic-fetch": "^2.2.1",
+    "jest": "^18.0.0",
     "mamp": "^0.0.4",
     "postcss-cssnext": "^2.8.0",
     "postcss-loader": "^1.1.1",

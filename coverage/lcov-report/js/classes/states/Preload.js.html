@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for js/classes/states/Preload.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">js/classes/states</a> Preload.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/21</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export default class Preload extends Ph<span class="cstat-no" title="statement not covered" >aser.State {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+  preload() {
+    th<span class="cstat-no" title="statement not covered" >is.asset = this.add.sprite(this.game.width / 2, this.game.height / 2, `preloader`);</span>
+    th<span class="cstat-no" title="statement not covered" >is.asset.animations.add(`preloading`);</span>
+    th<span class="cstat-no" title="statement not covered" >is.asset.animations.play(`preloading`, 30, true);</span>
+    th<span class="cstat-no" title="statement not covered" >is.asset.anchor.setTo(0.5, 0.5);</span>
+&nbsp;
+    th<span class="cstat-no" title="statement not covered" >is.load.image(`clouds`, `assets/images/clouds.png`);</span>
+    th<span class="cstat-no" title="statement not covered" >is.load.image(`sky`, `assets/images/sky.png`);</span>
+    th<span class="cstat-no" title="statement not covered" >is.load.image(`sea`, `assets/images/sea.png`);</span>
+    th<span class="cstat-no" title="statement not covered" >is.load.image(`game_over`, `assets/images/game_over.png`);</span>
+    th<span class="cstat-no" title="statement not covered" >is.load.image(`button`, `assets/images/button.png`);</span>
+    th<span class="cstat-no" title="statement not covered" >is.load.image(`button_hover`, `assets/images/button_hover.png`);</span>
+&nbsp;
+    th<span class="cstat-no" title="statement not covered" >is.load.atlasJSONHash(`platform`, `assets/images/platform_sprite.png`, `assets/data/platform_sprite.json`);</span>
+    th<span class="cstat-no" title="statement not covered" >is.load.atlasJSONHash(`cave`, `assets/images/cave_sprite.png`, `assets/data/cave_sprite.json`);</span>
+    th<span class="cstat-no" title="statement not covered" >is.load.atlasJSONHash(`icons`, `assets/images/icons.png`, `assets/data/icons.json`);</span>
+    th<span class="cstat-no" title="statement not covered" >is.load.atlasJSONHash(`fox`, `assets/images/fox.png`, `assets/data/fox.json`);</span>
+    th<span class="cstat-no" title="statement not covered" >is.load.atlasJSONHash(`chicken`, `assets/images/chicken.png`, `assets/data/chicken.json`);</span>
+&nbsp;
+    th<span class="cstat-no" title="statement not covered" >is.load.audio(`sound`, `assets/sounds/sound.mp3`);</span>
+    th<span class="cstat-no" title="statement not covered" >is.load.audio(`game_over`, `assets/sounds/game_over.wav`);</span>
+    th<span class="cstat-no" title="statement not covered" >is.load.audio(`jump_start`, `assets/sounds/jump_start.wav`);</span>
+  }<span class="fstat-no" title="function not covered" ></span>
+  create() {
+    th<span class="cstat-no" title="statement not covered" >is.state.start(`Menu`);</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 15 2016 18:10:22 GMT+0100 (CET)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

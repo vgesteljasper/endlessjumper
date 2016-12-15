@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for js/classes/objects/PlatformGroup.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">js/classes/objects</a> PlatformGroup.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/72</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/45</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Platform from './Platform';<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+import Tree from './Tree';
+import Chicken from './Chicken';<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+&nbsp;
+export default c<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >la</span>ss PlatformGroup extends<span class="cstat-no" title="statement not covered" > Phaser.Group {</span></span>
+&nbsp;
+  constructor(game, platformKey = nul<span class="fstat-no" title="function not covered" >l) {<span class="cstat-no" title="statement not covered" ></span></span>
+    super(game);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (platformKey == null) <span class="cstat-no" title="statement not covered" >platformKey = this.getRandomPlatform();</span></span>
+    const treeKey = this.getRandomTree();<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+    this.platform = new Platform(this.game, 0, 0, platformKey);
+    this.tree = new Tree(this.game, 0, 0, treeKey);
+    this.chicken = new Chicken(this.game, 0, 0);
+&nbsp;
+    this.add(this.platform);
+    this.add(this.tree);
+    this.add(this.chicken);
+&nbsp;
+    this.platform.events.onOutOfBounds.add(this.kill, this);
+  }<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+&nbsp;
+  getRandomPlatform() {
+    const options = <span class="cstat-no" title="statement not covered" >[`P1_T1`, `P2_T1`, `P3_T1`, `P4_T1`, `P5_T1`, `P6_T1`, `P1_T2`, `P2_T2`];</span>
+    re<span class="cstat-no" title="statement not covered" >turn options[Math.floor(Math.random() * options.length)];</span>
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  getRandomTree() {
+    const options = <span class="cstat-no" title="statement not covered" >[`I1_T1`, `I2_T1`, `I3_T1`];</span>
+    re<span class="cstat-no" title="statement not covered" >turn options[Math.floor(Math.random() * options.length)];</span>
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  getRandomNumber() {
+    re<span class="cstat-no" title="statement not covered" >turn Math.random();</span>
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  kill() {
+    th<span class="cstat-no" title="statement not covered" >is.exists = false;</span>
+    if<span class="cstat-no" title="statement not covered" > (this.chicken.exists) {</span>
+      th<span class="cstat-no" title="statement not covered" >is.chicken.kill();</span>
+    }
+    if<span class="cstat-no" title="statement not covered" > (this.tree.exists) {</span>
+      th<span class="cstat-no" title="statement not covered" >is.tree.kill();</span>
+    }
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  reset(x, y, game) {
+    th<span class="cstat-no" title="statement not covered" >is.game = game;</span>
+&nbsp;
+    // new platform sprite source
+    const platformKey = <span class="cstat-no" title="statement not covered" >this.getRandomPlatform();</span>
+    th<span class="cstat-no" title="statement not covered" >is.platform.frameName = platformKey;</span>
+&nbsp;
+    // update platform bounds after setting new sprite source
+    const platformSprite = <span class="cstat-no" title="statement not covered" >this.game.cache.getFrameByName(`platform`, platformKey);</span>
+    const platformWidth = <span class="cstat-no" title="statement not covered" >platformSprite.width;</span>
+    const platformHeight = <span class="cstat-no" title="statement not covered" >platformSprite.height;</span>
+    th<span class="cstat-no" title="statement not covered" >is.platform.body.setSize(platformWidth, platformHeight, - 10, 14);</span>
+&nbsp;
+    // generate random number
+    const random = <span class="cstat-no" title="statement not covered" >this.getRandomNumber();</span>
+&nbsp;
+    // chicken
+    if<span class="cstat-no" title="statement not covered" > (random &lt; .1) {</span>
+      const xPos = <span class="cstat-no" title="statement not covered" >this.game.rnd.integerInRange(20, platformWidth - 20);</span>
+      th<span class="cstat-no" title="statement not covered" >is.chicken.revive(xPos, - 40);</span>
+    }
+&nbsp;
+    // tree
+    if<span class="cstat-no" title="statement not covered" > (random &lt; .6) {</span>
+      const treeKey = <span class="cstat-no" title="statement not covered" >this.getRandomTree();</span>
+      const xPos = t<span class="cstat-no" title="statement not covered" >his.game.rnd.integerInRange(30, platformWidth - 30);</span>
+      th<span class="cstat-no" title="statement not covered" >is.tree.frameName = treeKey;</span>
+      th<span class="cstat-no" title="statement not covered" >is.tree.revive(xPos, - 170);</span>
+    }
+&nbsp;
+    // reset platformGroup
+    th<span class="cstat-no" title="statement not covered" >is.exists = true;</span>
+    th<span class="cstat-no" title="statement not covered" >is.x = x;</span>
+    th<span class="cstat-no" title="statement not covered" >is.y = y;</span>
+&nbsp;
+    // return width of new platform to Play state for timer delay
+    re<span class="cstat-no" title="statement not covered" >turn platformWidth;</span>
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  update() {
+&nbsp;
+    if<span class="cstat-no" title="statement not covered" > (this.chicken.exists) {</span>
+&nbsp;
+      // make chicken walk
+      const chickenSpeed = <span class="cstat-no" title="statement not covered" >.2;</span>
+      const direction = <span class="cstat-no" title="statement not covered" >this.chicken.getDirection();</span>
+      if<span class="cstat-no" title="statement not covered" > (direction) th<span class="cstat-no" title="statement not covered" >is.chicken.x += chickenSpeed;</span></span>
+      el<span class="cstat-no" title="statement not covered" >se this.chicken.x -= chickenSpee</span>d;
+&nbsp;
+      // collide chicken with platform
+      th<span class="cstat-no" title="statement not covered" >is.game = Phaser.GAMES[0];</span>
+      th<span class="cstat-no" title="statement not covered" >is.game.physics.arcade.collide(this.chicken, this.platform, null, null, this);</span>
+    }
+&nbsp;
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 15 2016 18:10:22 GMT+0100 (CET)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

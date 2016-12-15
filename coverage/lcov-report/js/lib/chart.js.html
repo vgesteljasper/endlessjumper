@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for js/lib/chart.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">js/lib</a> chart.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/8</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as d3 from 'd3';<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+const timeParse <span class="cstat-no" title="statement not covered" >= millise<span class="fstat-no" title="function not covered" >conds =&gt; {</span></span>
+  let seconds = <span class="cstat-no" title="statement not covered" >parseInt((milliseconds / 1000) % 60</span>);
+  let minutes = <span class="cstat-no" title="statement not covered" >parseInt((milliseconds / 60000) % 60</span>);
+<span class="cstat-no" title="statement not covered" >  minutes = checkLength(minutes);</span>
+<span class="cstat-no" title="statement not covered" >  seconds = checkLength(seconds);</span>
+<span class="cstat-no" title="statement not covered" >  return `${minutes}:${seconds}`;</span>
+};
+&nbsp;
+const checkLength <span class="cstat-no" title="statement not covered" >= value =<span class="fstat-no" title="function not covered" >&gt; value &lt; 10</span> ? `0${value}` : value;</span>
+&nbsp;
+export default (data, parentSVG, title) =&gt; {
+&nbsp;
+  let max = 0;
+  let count = 0;
+  let sum = 0;
+  data.forEach(data =&gt; {
+    count ++;
+    sum += data.duration;
+    const duration = data.duration / 10000;
+    if (max &lt; duration) {
+      max = duration;
+    }
+  });
+&nbsp;
+  const avg = sum / data.length;
+&nbsp;
+  const width = 800;
+  const height = 300;
+  const barWidth = 2;
+&nbsp;
+  const x = d3.scaleLinear()
+    .domain([0, max])
+    .range([0, (height - (height / 20))]);
+&nbsp;
+  const svg = d3.select(parentSVG)
+    .attr(`width`, width + 140)
+    .attr(`height`, height + 120);
+&nbsp;
+  const grid = svg.append(`g`)
+    .attr(`class`, `grid`)
+    .attr(`style`, `font-size: 1.2rem`)
+    .attr(`transform`, `translate(0, 50)`);
+&nbsp;
+  const info = svg.append(`g`)
+    .attr(`class`, `info`)
+    .attr(`style`, `font-size: 1.4rem`)
+    .attr(`transform`, `translate(0, 50)`);
+&nbsp;
+  const bars = svg.append(`g`)
+    .attr(`class`, `bars`)
+    .attr(`transform`, `translate(0, 50)`);
+&nbsp;
+  for (let i = 1;i &lt; 20;i ++) {
+    grid.append(`rect`)
+      .attr(`transform`, () =&gt; {
+        const yPos = height - ((height / 20) * i);
+        return `translate(100, ${yPos})`;
+      })
+      .attr(`width`, width + 40)
+      .attr(`height`, 1)
+      .attr(`fill`, `#f2f2f2`);
+    grid.append(`text`)
+      .attr(`x`, 55)
+      .attr(`y`, height - ((height / 20) * i) + 4)
+      .text(() =&gt; {
+        const milliseconds = Math.round(((max * 10000) / 19) * i);
+        return timeParse(milliseconds);
+      });
+  }
+&nbsp;
+  bars.selectAll(`g`)
+    .data(d3.values(data))
+    .enter().append(`rect`)
+    .attr(`height`, data =&gt; {
+      let duration = data.duration / 10000;
+      duration = x(duration);
+      return duration;
+    })
+    .attr(`width`, () =&gt; {
+      let bWidth = (width / count) - 2;
+      if (bWidth &gt; barWidth) {
+        bWidth = barWidth;
+      }
+      if (bWidth &lt; 1) {
+        bWidth = 1;
+      }
+      return bWidth;
+    })
+    .attr(`transform`, (data, index) =&gt; {
+      let duration = data.duration / 10000;
+      duration = x(duration);
+      let xOffset = width / count;
+      if (xOffset &gt; 20) {
+        xOffset = 20;
+      }
+      return `translate(${(index * xOffset) + 140}, ${height - duration})`;
+    })
+    .attr(`fill`, `black`);
+&nbsp;
+  info.append(`text`)
+    .attr(`x`, `-200`)
+    .attr(`y`, `15`)
+    .attr(`style`, `transform: rotate(-90deg)`)
+    .text(`GAME DURATION IN MINUTES`);
+&nbsp;
+  info.append(`text`)
+    .attr(`x`, `50%`)
+    .attr(`y`, `0`)
+    .attr(`style`, `font-size: 2rem; transform: translate(-50%, 0)`)
+    .text(title);
+&nbsp;
+  const infoLeft = info.append(`g`)
+    .attr(`class`, `info_name`);
+&nbsp;
+  const infoRight = info.append(`g`)
+    .attr(`class`, `info_value`);
+&nbsp;
+  infoLeft.append(`text`)
+    .attr(`x`, width - 100)
+    .attr(`y`, height + 40)
+    .text(`TIMES PLAYED:`);
+&nbsp;
+  infoRight.append(`text`)
+    .attr(`x`, width + 80)
+    .attr(`y`, height + 40)
+    .text(count);
+&nbsp;
+  infoLeft.append(`text`)
+    .attr(`x`, width - 100)
+    .attr(`y`, height + 60)
+    .text(`AVERAGE DURATION:`);
+&nbsp;
+  infoRight.append(`text`)
+    .attr(`x`, width + 80)
+    .attr(`y`, height + 60)
+    .text(timeParse(avg));
+&nbsp;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 15 2016 18:10:22 GMT+0100 (CET)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

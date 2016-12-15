@@ -58,8 +58,9 @@ if (process.env.NODE_ENV === `production`) {
   const ExtractTextWebpackPlugin = require(`extract-text-webpack-plugin`);
   const {UglifyJsPlugin} = webpack.optimize;
   const extractCSS = new ExtractTextWebpackPlugin(`css/style.css`);
+  config.entry[`styles`] = [`./src/css/game.css`, `./src/css/stats.css`];
   config.module.rules.push({
-    test: /\.css$/,
+    test: /\.(css)$/,
     loader: extractCSS.extract([
       {
         loader: `css-loader`,
