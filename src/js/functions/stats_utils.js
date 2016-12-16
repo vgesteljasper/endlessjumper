@@ -193,11 +193,8 @@ const getFilteredDataBetween = (data, startDate, endDate) => {
   else {
     if (typeof startDate.getMonth === `function` && typeof endDate.getMonth === `function`) {
       data.forEach(row => {
-        // Safari invalid date workaround (doesn't pass jest)
-        // puts a `T` in between date and time to have a valid date
-        // const date = new Date(row.created.replace(/\s/g, `T`));
-        const date = new Date(row.created);
-        if (date >= startDate && date < endDate) returnData.push(row);
+        const date = new Date(row.created.replace(/\s/g, `T`));
+        if (date >= startDate && date <= endDate) returnData.push(row);
       });
     } else {
       const startParam = stringDateToInt(startDate);
@@ -225,7 +222,7 @@ const filter = (data, startParam, endParam, returnData, DateTime) => {
     if (DateTime) date = parseInt(row.created.replace(/-|:|\s|[tT]/g, ``));
     else date = parseInt(row.created.substring(0, row.created.indexOf(` `)).replace(/-/g, ``));
     if (startParam !== false && endParam !== false) {
-      if (date >= startParam && date < endParam) returnData.push(row);
+      if (date > startParam && date < endParam) returnData.push(row);
     } else {
       if (startParam !== false) {
         if (date >= startParam) returnData.push(row);
