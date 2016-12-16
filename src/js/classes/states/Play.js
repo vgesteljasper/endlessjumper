@@ -203,9 +203,12 @@ export default class Play extends Phaser.State {
   }
 
   foxFall() {
+    if (this.scoreActive) {
+      this.sound.play(`game_over`, .2, false);
+    }
     this.scoreActive = false;
     this.speed = 0;
-    this.fox.fall();
+    this.fox.fall(this);
     if (this.platformDelayTimer) {
       this.platformDelayTimer.timer.destroy();
     }
