@@ -26,6 +26,15 @@ and serve the `./src` folder
 
 
 
+## testing
+
+### run tests with jest
+
+`$ yarn jest`
+
+
+
+
 ## production
 
 ### minified build
