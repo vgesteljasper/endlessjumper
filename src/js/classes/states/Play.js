@@ -154,7 +154,6 @@ export default class Play extends Phaser.State {
 
   goFaster() {
     if (this.speed < 22) {
-      // eslint gives error on `this.speed++`
       this.speed += 1;
     }
   }
@@ -225,6 +224,7 @@ export default class Play extends Phaser.State {
     this.currentChicken.kill();
     this.chickenScore += 1000;
     this.goFaster();
+    this.sound.play(`chicken_catch`, .2, false);
   }
 
   update() {

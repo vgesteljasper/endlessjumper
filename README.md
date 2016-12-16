@@ -2,7 +2,7 @@
 
 
 
-[play game here](http://student.howest.be/jasper.van.gestel/COD/GAME)
+[play game here](http://student.howest.be/jasper.van.gestel/20162017/COD/GAME)
 
 
 ## initialize project

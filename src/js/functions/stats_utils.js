@@ -17,15 +17,17 @@ const createUsageChart = (data, parentSVG, title) => {
   let sum = 0;
   let scoreSum = 0;
 
-  data.forEach(data => {
-    count ++;
-    sum += data.duration;
-    scoreSum += data.score;
-    const duration = data.duration / 10000;
-    if (max < duration) {
-      max = duration;
-    }
-  });
+  if (data.length !== 0) {
+    data.forEach(data => {
+      count ++;
+      sum += data.duration;
+      scoreSum += data.score;
+      const duration = data.duration / 10000;
+      if (max < duration) {
+        max = duration;
+      }
+    });
+  }
 
   const avg = sum / data.length;
   const scoreAvg = parseInt(scoreSum / data.length);
@@ -74,82 +76,94 @@ const createUsageChart = (data, parentSVG, title) => {
       });
   }
 
-  bars.selectAll(`g`)
-    .data(d3.values(data))
-    .enter().append(`rect`)
-    .attr(`height`, data => {
-      let duration = data.duration / 10000;
-      duration = x(duration);
-      return duration;
-    })
-    .attr(`width`, () => {
-      let bWidth = (width / count) - 2;
-      if (bWidth > barWidth) {
-        bWidth = barWidth;
-      }
-      if (bWidth < 1) {
-        bWidth = 1;
-      }
-      return bWidth;
-    })
-    .attr(`transform`, (data, index) => {
-      let duration = data.duration / 10000;
-      duration = x(duration);
-      let xOffset = width / count;
-      if (xOffset > 20) {
-        xOffset = 20;
-      }
-      return `translate(${(index * xOffset) + 140}, ${height - duration})`;
-    })
-    .attr(`fill`, `black`);
+  if (data.length !== 0) {
 
-  info.append(`text`)
-    .attr(`x`, `-200`)
-    .attr(`y`, `15`)
-    .attr(`style`, `transform: rotate(-90deg)`)
-    .text(`GAME DURATION IN MINUTES`);
+    bars.selectAll(`g`)
+      .data(d3.values(data))
+      .enter().append(`rect`)
+      .attr(`height`, data => {
+        let duration = data.duration / 10000;
+        duration = x(duration);
+        return duration;
+      })
+      .attr(`width`, () => {
+        let bWidth = (width / count) - 2;
+        if (bWidth > barWidth) {
+          bWidth = barWidth;
+        }
+        if (bWidth < 1) {
+          bWidth = 1;
+        }
+        return bWidth;
+      })
+      .attr(`transform`, (data, index) => {
+        let duration = data.duration / 10000;
+        duration = x(duration);
+        let xOffset = width / count;
+        if (xOffset > 20) {
+          xOffset = 20;
+        }
+        return `translate(${(index * xOffset) + 140}, ${height - duration})`;
+      })
+      .attr(`fill`, `black`);
 
-  info.append(`text`)
-    .attr(`x`, `50%`)
-    .attr(`y`, `0`)
-    .attr(`style`, `font-size: 2rem; transform: translate(-50%, 0)`)
-    .text(title);
+    info.append(`text`)
+      .attr(`x`, `-200`)
+      .attr(`y`, `15`)
+      .attr(`style`, `transform: rotate(-90deg)`)
+      .text(`GAME DURATION IN MINUTES`);
 
-  const infoLeft = info.append(`g`)
-    .attr(`class`, `info_name`);
+    info.append(`text`)
+      .attr(`x`, `50%`)
+      .attr(`y`, `0`)
+      .attr(`style`, `font-size: 2rem; transform: translate(-50%, 0)`)
+      .text(title);
 
-  const infoRight = info.append(`g`)
-    .attr(`class`, `info_value`);
+    const infoLeft = info.append(`g`)
+      .attr(`class`, `info_name`);
 
-  infoLeft.append(`text`)
-    .attr(`x`, width - 100)
-    .attr(`y`, height + 40)
-    .text(`TIMES PLAYED:`);
+    const infoRight = info.append(`g`)
+      .attr(`class`, `info_value`);
 
-  infoRight.append(`text`)
-    .attr(`x`, width + 80)
-    .attr(`y`, height + 40)
-    .text(count);
+    infoLeft.append(`text`)
+      .attr(`x`, width - 100)
+      .attr(`y`, height + 40)
+      .text(`TIMES PLAYED:`);
 
-  infoLeft.append(`text`)
-    .attr(`x`, width - 100)
-    .attr(`y`, height + 60)
-    .text(`AVERAGE DURATION:`);
+    infoRight.append(`text`)
+      .attr(`x`, width + 80)
+      .attr(`y`, height + 40)
+      .text(count);
 
-  infoRight.append(`text`)
-    .attr(`x`, width + 80)
-    .attr(`y`, height + 60)
-    .text(timeParse(avg));
+    infoLeft.append(`text`)
+      .attr(`x`, width - 100)
+      .attr(`y`, height + 60)
+      .text(`AVERAGE DURATION:`);
 
-  infoLeft.append(`text`)
-    .attr(`x`, width - 100)
-    .attr(`y`, height + 80)
-    .text(`AVERAGE SCORE:`);
+    infoRight.append(`text`)
+      .attr(`x`, width + 80)
+      .attr(`y`, height + 60)
+      .text(timeParse(avg));
 
-  infoRight.append(`text`)
-    .attr(`x`, width + 80)
-    .attr(`y`, height + 80)
-    .text(scoreAvg);
+    infoLeft.append(`text`)
+      .attr(`x`, width - 100)
+      .attr(`y`, height + 80)
+      .text(`AVERAGE SCORE:`);
+
+    infoRight.append(`text`)
+      .attr(`x`, width + 80)
+      .attr(`y`, height + 80)
+      .text(scoreAvg);
+
+  } else {
+
+    info.append(`text`)
+      .attr(`x`, 300)
+      .attr(`y`, 158)
+      .attr(`style`, `font-size: 1.8rem`)
+      .text(`NO GAME DATA BETWEEN CHOSEN DATES`);
+
+  }
 
 };
 
@@ -179,6 +193,9 @@ const getFilteredDataBetween = (data, startDate, endDate) => {
   else {
     if (typeof startDate.getMonth === `function` && typeof endDate.getMonth === `function`) {
       data.forEach(row => {
+        // Safari invalid date workaround (doesn't pass jest)
+        // puts a `T` in between date and time to have a valid date
+        // const date = new Date(row.created.replace(/\s/g, `T`));
         const date = new Date(row.created);
         if (date >= startDate && date < endDate) returnData.push(row);
       });
@@ -205,7 +222,7 @@ const stringDateToInt = date => {
 const filter = (data, startParam, endParam, returnData, DateTime) => {
   data.forEach(row => {
     let date;
-    if (DateTime) date = parseInt(row.created.replace(/-|:|\s/g, ``));
+    if (DateTime) date = parseInt(row.created.replace(/-|:|\s|[tT]/g, ``));
     else date = parseInt(row.created.substring(0, row.created.indexOf(` `)).replace(/-/g, ``));
     if (startParam !== false && endParam !== false) {
       if (date >= startParam && date < endParam) returnData.push(row);

@@ -21,8 +21,6 @@ const applyFilter = event => {
   const start = new Date($startDate.value);
   const end = new Date($endDate.value);
 
-  console.log(`${start} ${end}`);
-
   const filteredData = statsUtils.getFilteredDataBetween(gameData, start, end);
 
   console.log(filteredData);
