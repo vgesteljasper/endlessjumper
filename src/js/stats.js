@@ -25,6 +25,8 @@ const applyFilter = event => {
 
   const filteredData = statsUtils.getFilteredDataBetween(gameData, start, end);
 
+  console.log(filteredData);
+
   $svg.innerHTML = ``;
   statsUtils.createUsageChart(filteredData, $svg, `${$startDate.value} till ${$endDate.value}`);
 };

@@ -2,6 +2,10 @@
 
 
 
+## play game at
+
+`student.howest.be/20162017/COD/GAME`
+
 
 ## initialize project
 
