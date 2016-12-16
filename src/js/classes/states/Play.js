@@ -3,7 +3,6 @@ import Platform from '../objects/PlatformGroup';
 import Cave from '../objects/Cave';
 import Fox from '../objects/Fox';
 import Scoreboard from '../objects/Scoreboard';
-import localhostRoot from '../../functions/localhostRoot';
 import es6Promise from 'es6-promise';
 import fetch from 'isomorphic-fetch';
 es6Promise.polyfill();
@@ -45,7 +44,6 @@ export default class Play extends Phaser.State {
     // extras
     this.keyBindings();
     this.createScore();
-    this.prefix = localhostRoot();
   }
 
   createScore() {
@@ -280,7 +278,7 @@ export default class Play extends Phaser.State {
     data.append(`score`, this.score);
     data.append(`username`, sessionStorage.getItem(`username`));
 
-    fetch(`${this.prefix}index.php?page=stats_push&t=${Date.now()}`, {
+    fetch(`index.php?page=stats_push&t=${Date.now()}`, {
       headers: new Headers({
         Accept: `application/json`
       }),

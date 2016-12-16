@@ -1,5 +1,4 @@
 import * as statsUtils from './functions/stats_utils';
-import localhostRoot from './functions/localhostRoot';
 import es6Promise from 'es6-promise';
 import fetch from 'isomorphic-fetch';
 es6Promise.polyfill();
@@ -9,7 +8,6 @@ const $svg = document.getElementsByClassName(`svg`)[0];
 const $form = document.getElementById(`form`);
 const $startDate = document.getElementById(`startDate`);
 const $endDate = document.getElementById(`endDate`);
-const prefix = localhostRoot();
 
 let gameData;
 
@@ -32,7 +30,7 @@ const applyFilter = event => {
 };
 
 const loadItems = () => {
-  fetch(`${prefix}index.php?page=stats_get&data=all&t=${Date.now()}`, {
+  fetch(`index.php?page=stats_get&data=all&t=${Date.now()}`, {
     headers: new Headers({
       Accept: `application/json`
     })
