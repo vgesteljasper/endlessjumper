@@ -4,7 +4,7 @@ require_once( WWW_ROOT . 'dao' . DS . 'DAO.php');
 class StatDAO extends DAO {
 
   public function selectAll() {
-    $sql = "SELECT `created`, `duration` FROM `PHA_stats`";
+    $sql = "SELECT `created`, `duration`, `score` FROM `PHA_stats`";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);

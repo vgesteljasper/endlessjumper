@@ -16,8 +16,7 @@ h2 {
   margin: 6rem 0 2rem;
 }
 
-.svg_js,
-.svg_php {
+.svg {
   box-sizing: content-box;
   border: 20px solid white;
   border-left-width: 30px;

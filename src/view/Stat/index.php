@@ -1,15 +1,12 @@
 <section class="stats_wrapper">
+
+  <!--
+  // USED FETCH POLYFILL TO SUPPORT FETCH ON ALL DEVICED
+  // NO NEED FOR PHP FALLBACK
+  -->
+
   <h2>Game Statistics</h2>
-  <div class="stats_content">
-      <?php if (isset($errors) && !empty($errors)) {
-        var_dump($errors);
-      } ?>
-    <div class="phpdata hidden">
-      <?php if (isset($items) && !empty($items)) {
-        echo json_encode($items);
-      } ?>
-    </div>
-  </div>
+
   <div class="controlls">
     <form class="filter" id="form" action="/?page=stats" method="post">
       <p>show data between two dates</p>
@@ -19,7 +16,8 @@
       <input type="submit" name="filter" value="show stats">
     </form>
   </div>
+
   <div class="info"></div>
-  <svg class="svg_js"></svg>
-  <svg class="svg_php hidden"></svg>
+  <svg class="svg"></svg>
+
 </section>

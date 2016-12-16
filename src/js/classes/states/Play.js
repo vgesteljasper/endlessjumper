@@ -3,8 +3,7 @@ import Platform from '../objects/PlatformGroup';
 import Cave from '../objects/Cave';
 import Fox from '../objects/Fox';
 import Scoreboard from '../objects/Scoreboard';
-import localhostRoot from '../../lib/localhostRoot';
-
+import localhostRoot from '../../functions/localhostRoot';
 import es6Promise from 'es6-promise';
 import fetch from 'isomorphic-fetch';
 es6Promise.polyfill();
@@ -38,10 +37,6 @@ export default class Play extends Phaser.State {
     this.createStartPlatform();
     this.platforms = this.add.group();
     this.addFox();
-
-    // music
-    this.music = this.add.sound(`sound`);
-    //this.music.play();
 
     // timers
     this.platformDelay();
@@ -269,7 +264,7 @@ export default class Play extends Phaser.State {
     }
 
     // move title away
-    this.titleLeftPos -= (this.speed / 2);
+    this.titleLeftPos -= this.speed / 1.2;
     if (this.titleLeftPos > - 400) {
       this.title.position.x = this.titleLeftPos;
     }
@@ -279,16 +274,11 @@ export default class Play extends Phaser.State {
 
   pushDataToServer() {
 
-    // change path in src/js/lib/localhostRoot.js
-    // this file is NOT tracked by git for usability reasons
-
-    const username = sessionStorage.getItem(`username`);
-
     const data = new FormData();
     data.append(`action`, `add-stat`);
     data.append(`duration`, this.time.now - this.startTime);
     data.append(`score`, this.score);
-    data.append(`username`, username);
+    data.append(`username`, sessionStorage.getItem(`username`));
 
     fetch(`${this.prefix}index.php?page=stats_push&t=${Date.now()}`, {
       headers: new Headers({
@@ -305,10 +295,6 @@ export default class Play extends Phaser.State {
         console.log(`failed to post stat to server`);
       }
     });
-  }
-
-  render() {
-    this.game.debug.body(this.fox);
   }
 
 }

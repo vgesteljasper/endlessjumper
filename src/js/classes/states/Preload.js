@@ -24,6 +24,10 @@ export default class Preload extends Phaser.State {
     this.load.audio(`jump_start`, `assets/sounds/jump_start.wav`);
   }
   create() {
+    // music
+    this.music = this.add.sound(`sound`);
+    //this.music.play();
+
     this.state.start(`Menu`);
   }
 }

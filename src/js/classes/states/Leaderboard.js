@@ -1,5 +1,4 @@
-import localhostRoot from '../../lib/localhostRoot';
-
+import localhostRoot from '../../functions/localhostRoot';
 import es6Promise from 'es6-promise';
 import fetch from 'isomorphic-fetch';
 es6Promise.polyfill();
@@ -79,7 +78,7 @@ export default class Leaderboard extends Phaser.State {
   }
 
   fetchLeaderboard() {
-    fetch(`${this.prefix}index.php?page=stats_get&leaderboard&t=${Date.now()}`, {
+    fetch(`${this.prefix}index.php?page=stats_get&data=leaderboard&t=${Date.now()}`, {
       headers: new Headers({
         Accept: `application/json`
       })

@@ -12,19 +12,20 @@ class StatController extends Controller {
 	}
 
 	public function index() {
-		$items = $this->statDAO->selectAll();
-    if($this->isAjax) {
-      header('Content-Type: application/json');
-      echo json_encode($items);
-      exit();
-    }
-    $this->set('items', $items);
 	}
 
 	public function get() {
-		if (isset($_GET['leaderboard'])) {
+		if (isset($_GET['data']) && $_GET['data'] === 'leaderboard') {
 			$items = $this->statDAO->getTopTen();
 			if($this->isAjax) {
+	      header('Content-Type: application/json');
+	      echo json_encode($items);
+	      exit();
+	    }
+		}
+		if (isset($_GET['data']) && $_GET['data'] === 'all') {
+			$items = $this->statDAO->selectAll();
+	    if($this->isAjax) {
 	      header('Content-Type: application/json');
 	      echo json_encode($items);
 	      exit();
