@@ -1,7 +1,7 @@
 {
-  "name": "TheFoxGame",
-  "version": "0.1.0",
-  "description": "Eat as many chickens as you can while avoiding the bear.",
+  "name": "The_Fox_Game",
+  "version": "1.0.0",
+  "description": "Eat as many chickens as you can and run as far as you can to gain the most points",
   "main": "index.js",
   "scripts": {
     "dev": "mamp ./src & webpack-dev-server",
@@ -42,7 +42,6 @@
     "webpack-dev-server": "beta"
   },
   "dependencies": {
-    "d3": "^4.4.0",
-    "date.format": "^1.1.2"
+    "d3": "^4.4.0"
   }
 }
