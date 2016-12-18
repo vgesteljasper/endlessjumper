@@ -1,6 +1,6 @@
 import Game from './classes/Game';
 
-let $main,
+let $body,
   $formWrapper,
   $form,
   $input,
@@ -8,7 +8,7 @@ let $main,
 
 const init = () => {
 
-  $main = document.getElementsByTagName(`main`)[0];
+  $body = document.getElementsByTagName(`body`)[0];
 
   if (isWebfontLoaded()) {
     startGame();
@@ -46,7 +46,7 @@ const addStartForm = () => {
   $form.appendChild($input);
   $form.appendChild($submit);
   $formWrapper.appendChild($form);
-  $main.appendChild($formWrapper);
+  $body.appendChild($formWrapper);
 };
 
 const isWebfontLoaded = () => document.documentElement.classList.contains(`wf-active`);
@@ -59,7 +59,7 @@ const formHandler = event => {
   event.preventDefault();
   if ($input.value !== ``) {
     sessionStorage.setItem(`username`, $input.value);
-    $main.removeChild($formWrapper);
+    $body.removeChild($formWrapper);
   }
 };
 
