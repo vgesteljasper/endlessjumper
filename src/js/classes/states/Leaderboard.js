@@ -19,7 +19,7 @@ export default class Leaderboard extends Phaser.State {
   addBackButton() {
     const buttonGroup = this.game.add.group();
 
-    const restartButton = this.game.add.button(0, 0, `button`, this.restartGame, this, `button_hover`);
+    const restartButton = this.game.add.button(0, 0, `button`, this.restartGame, this, `hover`, `button`);
     const restartButtonText = this.game.add.text(90, 22, `back`, {
       font: `20px BigJohn`,
       fill: `white`

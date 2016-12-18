@@ -1,15 +1,12 @@
 # COD-08
 
+## play game
 
-
-[play game here](http://student.howest.be/jasper.van.gestel/20162017/COD/GAME)
-
+[http://student.howest.be/jasper.van.gestel/20162017/COD/GAME](http://student.howest.be/jasper.van.gestel/20162017/COD/GAME)
 
 ## initialize project
 
 `$ yarn`
-
-
 
 ## development
 
@@ -25,24 +22,17 @@ and navigate to your localhost
 
 and serve the `./src` folder
 
-
-
-
 ## testing
 
 ### run tests with jest
 
 `$ yarn jest`
 
-
-
-
 ## production
 
 ### minified build
 
 `$ yarn build`
-
 
 ### unminified build
 

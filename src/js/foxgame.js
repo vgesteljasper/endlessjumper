@@ -1,10 +1,14 @@
 import Game from './classes/Game';
 
-const $formWrapper = document.getElementsByClassName(`form_wrapper`)[0];
-const $form = document.getElementById(`form`);
-const $formInput = document.getElementById(`form_input`);
+let $main,
+  $formWrapper,
+  $form,
+  $input,
+  $submit;
 
 const init = () => {
+
+  $main = document.getElementsByTagName(`main`)[0];
 
   if (isWebfontLoaded()) {
     startGame();
@@ -13,15 +17,39 @@ const init = () => {
   window.WebFontConfig.active = () => startGame();
 
   if (!checkSessionStorageForKey(`username`)) {
-    $formWrapper.classList.remove(`hidden`);
-    $form.addEventListener(`submit`, formHandler);
+    addStartForm();
   }
 
 };
 
-const isWebfontLoaded = () => {
-  return document.documentElement.classList.contains(`wf-active`);
+const addStartForm = () => {
+  $formWrapper = document.createElement(`div`);
+  $formWrapper.classList.add(`form_wrapper`, `centered`);
+
+  $form = document.createElement(`form`);
+  $form.id = `form`;
+  $form.setAttribute(`action`, `/`);
+  $form.setAttribute(`method`, `post`);
+  $form.addEventListener(`submit`, formHandler);
+
+  $input = document.createElement(`input`);
+  $input.id = `form_input`;
+  $input.setAttribute(`type`, `text`);
+  $input.setAttribute(`name`, `username`);
+  $input.setAttribute(`placeholder`, `choose username`);
+
+  $submit = document.createElement(`input`);
+  $submit.setAttribute(`type`, `submit`);
+  $submit.setAttribute(`name`, `submit`);
+  $submit.setAttribute(`value`, `play`);
+
+  $form.appendChild($input);
+  $form.appendChild($submit);
+  $formWrapper.appendChild($form);
+  $main.appendChild($formWrapper);
 };
+
+const isWebfontLoaded = () => document.documentElement.classList.contains(`wf-active`);
 
 const startGame = () => {
   new Game();
@@ -29,22 +57,15 @@ const startGame = () => {
 
 const formHandler = event => {
   event.preventDefault();
-  if ($formInput.value !== ``) {
-    sessionStorage.setItem(`username`, $formInput.value);
-    hideForm();
+  if ($input.value !== ``) {
+    sessionStorage.setItem(`username`, $input.value);
+    $main.removeChild($formWrapper);
   }
-};
-
-const hideForm = () => {
-  $formWrapper.classList.add(`hidden`);
 };
 
 const checkSessionStorageForKey = key => {
-  if (sessionStorage.getItem(key) !== null) {
-    return true;
-  } else {
-    return false;
-  }
+  if (sessionStorage.getItem(key) !== null) return true;
+  return false;
 };
 
 init();

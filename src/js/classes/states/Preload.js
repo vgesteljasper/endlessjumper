@@ -9,8 +9,6 @@ export default class Preload extends Phaser.State {
     this.load.image(`sky`, `assets/images/sky.png`);
     this.load.image(`sea`, `assets/images/sea.png`);
     this.load.image(`game_over`, `assets/images/game_over.png`);
-    this.load.image(`button`, `assets/images/button.png`);
-    this.load.image(`button_hover`, `assets/images/button_hover.png`);
     this.load.image(`crown`, `assets/images/crown.png`);
 
     this.load.atlasJSONHash(`platform`, `assets/images/platform_sprite.png`, `assets/data/platform_sprite.json`);
@@ -18,6 +16,7 @@ export default class Preload extends Phaser.State {
     this.load.atlasJSONHash(`icons`, `assets/images/icons.png`, `assets/data/icons.json`);
     this.load.atlasJSONHash(`fox`, `assets/images/fox.png`, `assets/data/fox.json`);
     this.load.atlasJSONHash(`chicken`, `assets/images/chicken.png`, `assets/data/chicken.json`);
+    this.load.atlasJSONHash(`button`, `assets/images/button_sprite.png`, `assets/data/button_sprite.json`);
 
     this.load.audio(`music`, `assets/sounds/music.mp3`);
     this.load.audio(`game_over`, `assets/sounds/game_over.wav`);

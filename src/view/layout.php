@@ -24,7 +24,9 @@
         <?php echo $css; ?>
     </head>
     <body>
+      <main class="wrapper">
         <?php echo $content; ?>
         <?php echo $js; ?>
+      </main>
     </body>
 </html>

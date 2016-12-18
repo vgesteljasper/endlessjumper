@@ -34,8 +34,13 @@ body {
     appearance: none;
     margin: 1rem 20rem 0;
     border: none;
-    background-image: url('../assets/images/button.png');
-    background-size: cover;
+    background-image: url('../assets/images/button_sprite.png');
+    background-size: 100% auto;
+    height: 5rem;
     color: white;
+
+    &:hover {
+      background-position: 0 5rem;
+    }
   }
 }

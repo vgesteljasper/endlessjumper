@@ -1,0 +1,25 @@
+﻿{
+	"frames": {
+		"button": {
+			"frame": {"x":0,"y":0,"w":180,"h":40},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":180,"h":40},
+			"sourceSize": {"w":180,"h":40}
+		},
+		"hover": {
+			"frame": {"x":0,"y":40,"w":180,"h":40},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":180,"h":40},
+			"sourceSize": {"w":180,"h":40}
+		}
+	},
+	"meta": {
+		"version": "1.0.0",
+		"image": "button_sprite.png",
+		"format": "RGBA8888",
+		"size": {"w":180,"h":80},
+		"scale": "1"
+	}
+}
