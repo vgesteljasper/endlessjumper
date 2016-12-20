@@ -31,7 +31,7 @@ class StatDAO extends DAO {
     $stmt->bindValue(':created', $data['created']);
     $stmt->bindValue(':duration', $data['duration']);
     $stmt->bindValue(':score', $data['score']);
-    $stmt->bindValue(':username', $data['username']);
+    $stmt->bindValue(':username', strip_tags($data['username']));
     if ($stmt->execute()) {
       $insertedId = $this->pdo->lastInsertId();
       return $this->selectById($insertedId);
