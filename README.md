@@ -1,8 +1,4 @@
-# COD-08
-
-## play game
-
-[http://student.howest.be/jasper.van.gestel/20162017/COD/GAME](http://student.howest.be/jasper.van.gestel/20162017/COD/GAME)
+# ENDLESS FOX JUMPER/RUNNER
 
 ## initialize project
 
