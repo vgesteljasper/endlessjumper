@@ -2,8 +2,8 @@ const path = require(`path`);
 const webpack = require(`webpack`);
 
 // change for production build on different server path
-const publicPath = `/`;
-// const publicPath = `/jasper.van.gestel/20162017/COD/GAME/`;
+// const publicPath = `/`;
+const publicPath = `/jasper.van.gestel/20162017/COD/GAME/`;
 // const publicPath = `/remco.van.gestel/20162017/COD/GAME/`;
 
 const config = {

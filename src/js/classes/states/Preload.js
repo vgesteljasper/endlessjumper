@@ -24,8 +24,7 @@ export default class Preload extends Phaser.State {
     this.load.audio(`chicken_catch`, `assets/sounds/chicken_catch.wav`);
   }
   create() {
-    this.music = this.add.sound(`music`);
-    this.music.play();
+    this.sound.play(`music`, 1, true);
 
     this.state.start(`Menu`);
   }

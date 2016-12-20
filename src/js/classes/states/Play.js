@@ -203,7 +203,7 @@ export default class Play extends Phaser.State {
 
   foxFall() {
     if (this.scoreActive) {
-      this.sound.play(`game_over`, .2, false);
+      this.sound.play(`game_over`, .4, false);
     }
     this.scoreActive = false;
     this.speed = 0;
@@ -224,7 +224,7 @@ export default class Play extends Phaser.State {
     this.currentChicken.kill();
     this.chickenScore += 1000;
     this.goFaster();
-    this.sound.play(`chicken_catch`, .2, false);
+    this.sound.play(`chicken_catch`, .3, false);
   }
 
   update() {
