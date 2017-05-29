@@ -1,3 +1,5 @@
+[[ School Assignment ]]
+
 # ENDLESS FOX JUMPER/RUNNER
 
 ## initialize project
